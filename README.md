@@ -1,6 +1,14 @@
 # PDF API
 Slim Framework powered API for PDF form filling.
 
+## Notice
+Fetching container images behind company proxy with self-signed certificate may fail. In such case exiting network is recommended for ease of development.
+
+## Requirements
+- Git
+- Docker Engine 
+- Composer
+
 ## Development Setup
 
 The docker compose consists of four services:
