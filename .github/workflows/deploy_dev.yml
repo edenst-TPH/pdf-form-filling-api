@@ -28,4 +28,5 @@ jobs:
               git checkout dev
             fi
 
-            docker compose up
+            composer install --working-dir=/app
+            docker compose -f compose.dev.yml up
