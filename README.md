@@ -34,5 +34,5 @@ Temporary not so elegant setup:
     cd pdf-api
     composer install --working-dir=/app
     docker compose -f compose.dev.yml up
+    # access Slim Application at http://localhost:4080/
 ```
-
