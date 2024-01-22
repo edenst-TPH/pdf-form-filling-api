@@ -1,4 +1,4 @@
-# PDF API
+# PDF API [![Deploy to dev](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml/badge.svg?branch=master)](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml)
 Slim Framework powered API for PDF form filling.
 
 ## Notice
@@ -34,5 +34,5 @@ Temporary not so elegant setup:
     cd pdf-api
     composer install --working-dir=/app
     docker compose -f compose.dev.yml up
+    # access Slim Application at http://localhost:4080/
 ```
-

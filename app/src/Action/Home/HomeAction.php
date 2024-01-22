@@ -10,7 +10,7 @@ final class HomeAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         
-        $response->getBody()->write('Welcome!');
+        $response->getBody()->write('Hello from HomeAction');
 
 
         return $response;
