@@ -1,7 +1,7 @@
 services:
   nginx:
     image: nginx:latest
-    container_name: pdf-api-nginx-container
+    container_name: pdf-api-nginx
     ports:
       - "4080:80"
     volumes:
@@ -12,7 +12,7 @@ services:
 
   php-fpm:
     build: ./.docker/php-fpm
-    container_name: pdf-api-php-container
+    container_name: pdf-api-php
     # links:
     #   - mysql
     environment:
@@ -21,29 +21,29 @@ services:
       - PHP_FPM_SERVER_ADDR=php
       - PHP_FPM_SERVER_PORT=9000
       - PHP_FPM_TIMEOUT=${HTTPD_TIMEOUT_TO_PHP_FPM:-180}
-      - POSTGRES_HOST=pdf-api-postgres
-      - PSOTGRES_DB=pdf_api_dev
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_PORT=5432
+      # - POSTGRES_HOST=pdf-api-postgres
+      # - PSOTGRES_DB=pdf_api_dev
+      # - POSTGRES_USER=postgres
+      # - POSTGRES_PASSWORD=password
+      # - POSTGRES_PORT=5432
     volumes:
       - ./app:/var/www/html
 
-  postgres:
-    container_name: pdf-api-postgres
-    image: postgres:16.1
-    restart: always
-    environment:
-      - POSTGRES_PASSWORD=password # is set on initial build. Delete image if you want to change! Careful data loss.
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+  # postgres:
+  #   container_name: pdf-api-postgres
+  #   image: postgres:16.1
+  #   restart: always
+  #   environment:
+  #     - POSTGRES_PASSWORD=password # is set on initial build. Delete image if you want to change! Careful data loss.
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
 
-  adminer:
-    container_name: pdf-api-php-adminer
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+  # adminer:
+  #   container_name: pdf-api-php-adminer
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
 
-volumes:
-  pgdata:      
+# volumes:
+#   pgdata:      

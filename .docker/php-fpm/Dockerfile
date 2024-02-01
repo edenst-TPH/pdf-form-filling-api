@@ -1,19 +1,35 @@
 FROM php:8.1-fpm
 
-RUN curl -L -C - --progress-bar -o /usr/local/bin/composer https://getcomposer.org/composer.phar
-RUN chmod 755 /usr/local/bin/composer
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    php-zip \
+    unzip
 
-# RUN apt-get update && apt-get install -y \
-#     git
-#     zip 
-#     unzip 
-#     php-zip
-#     libpq-dev 
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+# Install PHP extensions
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
-RUN chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions pdo pdo_pgsql pgsql zip
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Set working directory
+WORKDIR /var/www/html/
+
+RUN composer install
+
+
+# ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+# RUN chmod +x /usr/local/bin/install-php-extensions && \
+#     install-php-extensions pdo pdo_pgsql pgsql zip
 
 #RUN docker-php-ext-install pdo pdo_pgsql pgsql zip
 #RUN pecl install xdebug && docker-php-ext-enable xdebug
