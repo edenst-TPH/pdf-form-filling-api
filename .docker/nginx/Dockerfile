@@ -12,5 +12,16 @@ FROM base as dev
 RUN echo "Development Environment"
 
 # Install certbot and request certificate
-RUN apt -y install certbot
+RUN apt update
+RUN snap install --classic certbot
+RUN ln -s /snap/bin/certbot /usr/bin/certbot
+
 RUN certbot certonly --webroot -w /var/www/html -d 143.198.242.211.nip.io --email ekin.tertemiz@swisstph.ch --agree-tos
+
+# RUN mkdir -p /etc/letsencrypt/ssl
+
+# RUN cp -r -L /etc/letsencrypt/live/143.198.242.211.nip.io/fullchain.pem /etc/letsencrypt/ssl/
+# RUN cp -r -L /etc/letsencrypt/live/143.198.242.211.nip.io/privkey.pem /etc/letsencrypt/ssl/
+
+# RUN chown <nginx_user>:<nginx_group> /etc/letsencrypt/ssl/fullchain.pem
+# RUN chown <nginx_user>:<nginx_group> /etc/letsencrypt/ssl/privkey.pem
