@@ -1,4 +1,4 @@
-# PDF API [![Deploy to dev](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml/badge.svg?branch=master)](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml)
+# PDF API [![Deploy to dev](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml/badge.svg)](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml)
 Slim Framework powered API for PDF form filling.
 
 ## Notice
