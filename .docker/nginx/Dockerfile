@@ -17,7 +17,7 @@ RUN pip3 install pip --upgrade
 RUN pip3 install certbot-nginx
 RUN mkdir /etc/letsencrypt
 
-RUN certbot --nginx -d 143.198.242.211.nip.io -d www.143.198.242.211.nip.io --email ekin.tertemiz@swisstph.ch --agree-tos
+RUN certbot --nginx -d 143.198.242.211.sslip.io -d www.143.198.242.211.sslip.io --email ekin.tertemiz@swisstph.ch --agree-tos
 
 
 # RUN certbot certonly --webroot -w /var/www/html -d 143.198.242.211.nip.io --email ekin.tertemiz@swisstph.ch --agree-tos
