@@ -13,6 +13,10 @@ RUN echo "Development Environment"
 
 # Install certbot and request certificate
 RUN apt update
+RUN apt install snapd
+RUN snap install core
+RUN apt-get remove certbot
+
 RUN snap install --classic certbot
 RUN ln -s /snap/bin/certbot /usr/bin/certbot
 
