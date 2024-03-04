@@ -13,14 +13,16 @@ RUN echo "Development Environment"
 
 # Install certbot and request certificate
 RUN apt update
-RUN apt install snapd
+RUN apt install snapd -y
 RUN snap install core
-RUN apt-get remove certbot
+RUN apt-get remove certbot -y
 
 RUN snap install --classic certbot
 RUN ln -s /snap/bin/certbot /usr/bin/certbot
 
-RUN certbot certonly --webroot -w /var/www/html -d 143.198.242.211.nip.io --email ekin.tertemiz@swisstph.ch --agree-tos
+RUN certbot --nginx
+
+# RUN certbot certonly --webroot -w /var/www/html -d 143.198.242.211.nip.io --email ekin.tertemiz@swisstph.ch --agree-tos
 
 # RUN mkdir -p /etc/letsencrypt/ssl
 
