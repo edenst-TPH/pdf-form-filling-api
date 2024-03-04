@@ -36,3 +36,8 @@ Temporary not so elegant setup:
     docker compose -f compose.dev.yml up
     # access Slim Application at http://localhost:4080/
 ```
+
+## Development Server
+
+NGINX: http://143.198.242.211.nip.io/
+ADMINER: http://143.198.242.211.nip.io:8080
