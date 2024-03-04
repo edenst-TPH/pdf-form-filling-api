@@ -26,7 +26,8 @@ jobs:
               cd ~/pdf-api
               git fetch
               git checkout dev
+              git pull
             fi
 
             composer install --working-dir=/app
-            docker compose -f compose.dev.yml up
+            docker compose -f compose.dev.yml up --remove-orphans
