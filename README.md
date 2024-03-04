@@ -40,4 +40,14 @@ Temporary not so elegant setup:
 ## Development Server
 
 NGINX: http://143.198.242.211.nip.io/
-ADMINER: http://143.198.242.211.nip.io:8080
+Adminer: http://143.198.242.211.nip.io:8080
+
+
+# Adminer Login
+
+System: PostgresSQL
+Server: pdf-api-postgres
+Username: postgres
+Password: *********
+Database: postgres
+
