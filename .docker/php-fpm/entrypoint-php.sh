@@ -1,5 +1,4 @@
 #!/bin/sh
-APP_PATH="/var/www/html"
 echo "all params $@"
 echo "installing composer dependencies"
 composer install

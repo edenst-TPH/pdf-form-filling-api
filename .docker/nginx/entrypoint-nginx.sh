@@ -4,13 +4,7 @@ echo "all params $@"
 
 echo "installing certificates"
 
-# certbot --nginx -d 143.198.242.211.sslip.io -d www.143.198.242.211.sslip.io --email ekin.tertemiz@swisstph.ch --agree-tos --redirect --non-interactive
-
-certbot certonly --standalone -d 143.198.242.211.sslip.io -d www.143.198.242.211.sslip.io --email ekin.tertemiz@swisstph.ch --agree-tos
-
-# mkdir -p /etc/letsencrypt/ssl
-# cp -r -L /etc/letsencrypt/live/143.198.242.211.sslip.io/fullchain.pem /etc/letsencrypt/ssl/
-# cp -r -L /etc/letsencrypt/live/143.198.242.211.sslip.io/privkey.pem /etc/letsencrypt/ssl/
+certbot certonly --standalone -d 143.198.242.211.sslip.io -d www.143.198.242.211.sslip.io --email ekin.tertemiz@swisstph.ch --agree-tos --non-interactive
 
 echo "starting nginx"
 
