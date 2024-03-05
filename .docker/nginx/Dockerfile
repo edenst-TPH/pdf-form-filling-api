@@ -1,5 +1,8 @@
 FROM nginx:alpine as base
 
+RUN apk update
+RUN apk add nano bash
+
 # Copy entrypoint script
 COPY entrypoint-nginx.sh /usr/local/bin/entrypoint.sh
 
