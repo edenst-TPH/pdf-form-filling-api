@@ -1,12 +1,14 @@
 FROM nginx:alpine as base
 
+# Copy entrypoint script
+COPY entrypoint-nginx.sh /usr/local/bin/entrypoint.sh
+
 FROM base as local
 RUN echo "Local Environment"
 
 # Copy self-signed certificates
 COPY certs/nginx-selfsigned.crt /etc/nginx/ssl/nginx-selfsigned.crt
 COPY certs/nginx-selfsigned.key /etc/nginx/ssl/nginx-selfsigned.key
-
 
 FROM base as dev
 RUN echo "Development Environment"
@@ -19,11 +21,11 @@ RUN mkdir /etc/letsencrypt
 
 #RUN certbot --nginx -d 143.198.242.211.sslip.io -d www.143.198.242.211.sslip.io --email ekin.tertemiz@swisstph.ch --agree-tos
 
+RUN mkdir -p /var/www/html
 
-RUN certbot certonly --webroot -w /var/www/html -d 143.198.242.211.sslip.io -d www.143.198.242.211.sslip.io --email ekin.tertemiz@swisstph.ch --agree-tos
+# RUN certbot certonly --webroot -w /var/www/html -d 143.198.242.211.sslip.io -d www.143.198.242.211.sslip.io --email ekin.tertemiz@swisstph.ch --agree-tos
 
-RUN mkdir -p /etc/letsencrypt/ssl
+# RUN mkdir -p /etc/letsencrypt/ssl
 
-RUN cp -r -L /etc/letsencrypt/live/143.198.242.211.sslip.io/fullchain.pem /etc/letsencrypt/ssl/
-RUN cp -r -L /etc/letsencrypt/live/143.198.242.211.sslip.io/privkey.pem /etc/letsencrypt/ssl/
-
+# RUN cp -r -L /etc/letsencrypt/live/143.198.242.211.sslip.io/fullchain.pem /etc/letsencrypt/ssl/
+# RUN cp -r -L /etc/letsencrypt/live/143.198.242.211.sslip.io/privkey.pem /etc/letsencrypt/ssl/

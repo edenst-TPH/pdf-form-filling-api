@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    php-zip \
+    #php-zip \
     unzip
 
 # Clear cache
@@ -20,11 +20,14 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Copy entrypoint script
+COPY entrypoint-php.sh /usr/local/bin/entrypoint.sh
+
 # Set working directory
 WORKDIR /var/www/html/
 
-RUN composer install
-
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["php-fpm","-F"]
 
 # ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
@@ -33,9 +36,4 @@ RUN composer install
 
 #RUN docker-php-ext-install pdo pdo_pgsql pgsql zip
 #RUN pecl install xdebug && docker-php-ext-enable xdebug
-
-# Install composer with multistage
-#COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-
-# CMD bash -c "composer install --prefer-dist"
 
