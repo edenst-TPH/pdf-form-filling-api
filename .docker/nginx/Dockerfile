@@ -13,8 +13,8 @@ FROM base as local
 RUN echo "Local Environment"
 
 # Copy self-signed certificates
-# COPY certs/nginx-selfsigned.crt /etc/nginx/ssl/nginx-selfsigned.crt
-# COPY certs/nginx-selfsigned.key /etc/nginx/ssl/nginx-selfsigned.key
+COPY certs/nginx-selfsigned.crt /etc/nginx/ssl/nginx-selfsigned.crt
+COPY certs/nginx-selfsigned.key /etc/nginx/ssl/nginx-selfsigned.key
 
 FROM base as dev
 RUN echo "Development Environment"
