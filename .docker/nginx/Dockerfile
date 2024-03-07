@@ -3,6 +3,9 @@ FROM nginx:alpine as base
 RUN apk update
 RUN apk add nano bash
 
+# Create directory that syncs certificate files from certbot container volume
+RUN mkdir -p /etc/nginx/ssl/live/
+
 # Copy entrypoint script
 # COPY entrypoint-nginx.sh /usr/local/bin/entrypoint.sh
 
