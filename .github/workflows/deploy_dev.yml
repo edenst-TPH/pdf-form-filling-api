@@ -27,6 +27,7 @@ jobs:
               cd ~/pdf-api
               git fetch
               git checkout dev
+              git pull
             fi
 
-            docker compose -f compose.dev.yml up -d
+            docker compose -f compose.dev.yml up --remove-orphans 
