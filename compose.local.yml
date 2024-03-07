@@ -3,7 +3,7 @@ services:
     build: 
       context: ./.docker/nginx
       target: local
-    container_name: pdf-api-nginx
+    container_name: pdf-api-local-nginx
     ports:
       - "80:80"
       - "443:443"
@@ -15,7 +15,7 @@ services:
 
   php-fpm:
     build: ./.docker/php-fpm
-    container_name: pdf-api-php
+    container_name: pdf-api-local-php
     environment:
       - APP_ENV=local
       - PHP_FPM_ENABLE=1

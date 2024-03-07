@@ -1,10 +1,10 @@
 services:
   nginx:
+    container_name: pdf-api-dev-nginx
     restart: always
     build: 
       context: ./.docker/nginx
       target: dev
-    container_name: pdf-api-nginx
     ports:
       - "80:80"
       - "443:443"
@@ -18,8 +18,8 @@ services:
     #command: ["nginx", "-g", "daemon off;"]
 
   php-fpm:
+    container_name: pdf-api-dev-php
     build: ./.docker/php-fpm
-    container_name: pdf-api-php
     environment:
       - APP_ENV=dev
       - PHP_FPM_ENABLE=1
@@ -37,6 +37,7 @@ services:
     #   - postgres
   
   certbot:
+    container_name: pdf-api-dev-certbot
     image: certbot/certbot:latest
     volumes:
       - ./.docker/certbot/www/:/var/www/certbot/:rw
