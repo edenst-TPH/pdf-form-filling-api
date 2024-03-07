@@ -17,6 +17,8 @@ use Selective\BasePath\BasePathMiddleware;
 use Slim\App;
 use Slim\Factory\AppFactory;
 use Slim\Interfaces\RouteParserInterface;
+use Slim\Views\Twig;
+use Slim\Views\TwigMiddleware;
 
 return [
     // Application settings
@@ -86,5 +88,30 @@ return [
             $container->get(LoggerInterface::class),
             (bool)$settings['display_error_details'],
         );
+    },
+
+    // Twig templates
+    Twig::class => function (ContainerInterface $container) {
+        $settings = $container->get('settings');
+        $twigSettings = $settings['twig'];
+
+        $options = $twigSettings['options'];
+        $options['cache'] = $options['cache_enabled'] ? $options['cache_path'] : false;
+
+        $twig = Twig::create($twigSettings['paths'], $options);
+        // Add extension here
+        // ...
+        $environment = $twig->getEnvironment();
+        $environment->addGlobal('app_version', '0.1');
+        $environment->addGlobal('app_env', $_ENV["APP_ENV"]);
+
+        return $twig;
+    },
+
+    TwigMiddleware::class => function (ContainerInterface $container) {
+        return TwigMiddleware::createFromContainer(
+        $container->get(App::class),
+        Twig::class
+    );
     },
 ];

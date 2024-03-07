@@ -1,8 +1,20 @@
-# https://www.slimframework.com/docs/v4/start/web-servers.html#nginx-configuration
-# default config for Slim Framework 4
 server {
-    listen 80;
-    server_name localhost;
+    listen 80 default_server;
+    #listen [::]:80;
+
+    return 301 https://$host$request_uri;
+}
+
+
+server {
+    #listen [::]:443 ssl;
+    listen 443 ssl; 
+
+    server_name 143.198.242.211.sslip.io www.143.198.242.211.sslip.io;
+
+    ssl_certificate /etc/letsencrypt/live/143.198.242.211.sslip.io/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/143.198.242.211.sslip.io/privkey.pem;
+
     index index.php;
     error_log  /var/log/nginx/error.log;
     access_log /var/log/nginx/access.log;

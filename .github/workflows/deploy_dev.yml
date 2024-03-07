@@ -7,6 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: Dev
     steps: 
     - name: SSH into dev and execute deploy.sh
       uses: appleboy/ssh-action@v1.0.3
@@ -29,5 +30,6 @@ jobs:
               git pull
             fi
 
-            composer install --working-dir=/app
-            docker compose -f compose.dev.yml up --remove-orphans
+
+            docker compose -f compose.dev.yml up --remove-orphans 
+

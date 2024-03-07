@@ -1,1 +1,3 @@
 app/vendor
+.env
+.docker/certbot/conf/

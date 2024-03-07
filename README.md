@@ -1,4 +1,4 @@
-# PDF API [![Deploy to dev](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml/badge.svg?branch=master)](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml)
+# PDF API [![Deploy to dev](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml/badge.svg)](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml)
 Slim Framework powered API for PDF form filling.
 
 ## Notice
@@ -36,3 +36,18 @@ Temporary not so elegant setup:
     docker compose -f compose.dev.yml up
     # access Slim Application at http://localhost:4080/
 ```
+
+## Development Server
+
+NGINX: http://143.198.242.211.nip.io/
+Adminer: http://143.198.242.211.nip.io:8080
+
+
+# Adminer Login
+
+System: PostgresSQL
+Server: pdf-api-postgres
+Username: postgres
+Password: *********
+Database: postgres
+
