@@ -30,4 +30,6 @@ jobs:
               git pull
             fi
 
+
             docker compose -f compose.dev.yml up --remove-orphans 
+

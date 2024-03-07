@@ -1,0 +1,181 @@
+<mxfile host="app.diagrams.net" modified="2024-01-25T10:33:05.271Z" agent="Mozilla/5.0 (SwissTPH; Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/91.0" etag="sMKcZN443h8FT0LhSqxz" version="23.0.1" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1233" dy="1080" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="XqmxEnGSUdeE-ECbXORa-4" value="App" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#E6E6E6;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="280" y="104" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XqmxEnGSUdeE-ECbXORa-0" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;Browser&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;fillColor=#E6E6E6;fontSize=14;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="60" y="74" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XqmxEnGSUdeE-ECbXORa-7" value="" style="endArrow=classic;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="XqmxEnGSUdeE-ECbXORa-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="203" as="sourcePoint" />
+            <mxPoint x="330" y="203" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XqmxEnGSUdeE-ECbXORa-9" value="&lt;div&gt;pdf&lt;/div&gt;&lt;div&gt;valid ?&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="333" y="169" width="70" height="67" as="geometry" />
+        </mxCell>
+        <mxCell id="XqmxEnGSUdeE-ECbXORa-16" value="&lt;div&gt;create &lt;font color=&quot;#CC0000&quot;&gt;project,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;store every posted valid pdf form,&lt;/div&gt;&lt;div&gt;dump form fields for feedback&lt;br&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;size=0.08333333333333333;align=left;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="490" y="178" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XqmxEnGSUdeE-ECbXORa-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0.033;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.445;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1" target="J7BP0KJgcIZ01-OoBosc-12" source="XqmxEnGSUdeE-ECbXORa-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="609.04" y="197.98000000000002" as="sourcePoint" />
+            <mxPoint x="650" y="198.19096671949296" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XqmxEnGSUdeE-ECbXORa-23" value="End" style="strokeWidth=1;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="66" y="627" width="40" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="XqmxEnGSUdeE-ECbXORa-26" value="&lt;div&gt;send&lt;/div&gt;&lt;div&gt;data ?&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="46" y="330" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HT5IqFjQtRE1Y5vp7M-8-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XqmxEnGSUdeE-ECbXORa-26" target="XqmxEnGSUdeE-ECbXORa-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="550" as="sourcePoint" />
+            <mxPoint x="440" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="333" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HT5IqFjQtRE1Y5vp7M-8-4" value="no" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" parent="HT5IqFjQtRE1Y5vp7M-8-3" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-172" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HT5IqFjQtRE1Y5vp7M-8-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.017;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XqmxEnGSUdeE-ECbXORa-9" target="XqmxEnGSUdeE-ECbXORa-16" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="550" as="sourcePoint" />
+            <mxPoint x="500" y="197" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HT5IqFjQtRE1Y5vp7M-8-6" value="yes" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" parent="HT5IqFjQtRE1Y5vp7M-8-5" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-26" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HT5IqFjQtRE1Y5vp7M-8-12" value="&lt;div&gt;data&lt;/div&gt;&lt;div&gt;valid ?&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="334" y="491" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HT5IqFjQtRE1Y5vp7M-8-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XqmxEnGSUdeE-ECbXORa-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="117" y="511" as="sourcePoint" />
+            <mxPoint x="333" y="531" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="86" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HT5IqFjQtRE1Y5vp7M-8-14" value="yes" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" parent="HT5IqFjQtRE1Y5vp7M-8-13" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-50" y="-113" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HT5IqFjQtRE1Y5vp7M-8-30" value="&lt;div style=&quot;font-size: 11px;&quot;&gt;data +&lt;/div&gt;&lt;div style=&quot;font-size: 11px;&quot;&gt;project id&lt;/div&gt;" style="shape=parallelogram;html=1;strokeWidth=1;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fontSize=11;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="180" y="500" width="96" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="HT5IqFjQtRE1Y5vp7M-8-31" value="&lt;div&gt;modified pdf&lt;/div&gt;" style="shape=parallelogram;html=1;strokeWidth=1;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fontSize=11;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="176" y="372" width="100" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-7" value="&lt;div style=&quot;font-size: 12px;&quot;&gt;post pdf form&lt;/div&gt;" style="shape=parallelogram;html=1;strokeWidth=1;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;fontSize=11;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="138" y="169" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="HT5IqFjQtRE1Y5vp7M-8-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="384" y="847" as="sourcePoint" />
+            <mxPoint x="580" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-9" value="yes" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="J7BP0KJgcIZ01-OoBosc-8">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="2" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-10" value="&lt;div&gt;create &lt;font color=&quot;#CC0000&quot;&gt;job&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#CC0000&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;load &lt;font color=&quot;#CC0000&quot;&gt;newest&lt;/font&gt; pdf form of project&lt;/font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#CC0000&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;foreach data record&lt;/font&gt;&lt;/font&gt;: create pdf, fill in record data, flatten pdf and add it to zip file&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;size=0.08333333333333333;align=left;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="580" y="510" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-12" value="&lt;div&gt;stored&lt;br&gt;&lt;/div&gt;&lt;div&gt;pdf form(s)&lt;br&gt;&lt;/div&gt;" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="510" y="110" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-13" value="&lt;div&gt;stored zip file&lt;/div&gt;&lt;div&gt;contains resulting pdf&#39;s&lt;/div&gt;" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;fontSize=12;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="670" y="627" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-14" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.679;entryY=-0.08;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.729;exitY=0.975;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="J7BP0KJgcIZ01-OoBosc-10" target="J7BP0KJgcIZ01-OoBosc-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="570" as="sourcePoint" />
+            <mxPoint x="510" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-17" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.204;exitY=1.025;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="J7BP0KJgcIZ01-OoBosc-10" target="XqmxEnGSUdeE-ECbXORa-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="550" as="sourcePoint" />
+            <mxPoint x="440" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="636" y="641" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-18" value="&lt;div&gt;We created &lt;font color=&quot;#CC0000&quot;&gt;xy pdf&#39;s&lt;/font&gt; from your input, they can be &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#CC0000&quot;&gt;downloaded here&lt;font color=&quot;#000000&quot;&gt; (url with job id)&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=middle;labelBackgroundColor=#EAFFDD;labelBorderColor=#B3B3B3;" connectable="0" vertex="1" parent="J7BP0KJgcIZ01-OoBosc-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-275" y="-18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.386;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XqmxEnGSUdeE-ECbXORa-16" target="XqmxEnGSUdeE-ECbXORa-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="550" as="sourcePoint" />
+            <mxPoint x="440" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="576" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-20" value="&lt;div style=&quot;font-size: 11px;&quot;&gt;Project created, with &lt;font style=&quot;font-size: 11px;&quot; color=&quot;#CC0000&quot;&gt;&lt;b style=&quot;font-size: 11px;&quot;&gt;id&lt;/b&gt;&lt;/font&gt; xy; found &lt;font style=&quot;font-size: 11px;&quot; color=&quot;#CC0000&quot;&gt;&lt;b&gt;f&lt;/b&gt;&lt;b style=&quot;font-size: 11px;&quot;&gt;orm fields&lt;/b&gt;&lt;/font&gt; xyz;pls &lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px;&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot; color=&quot;#CC0000&quot;&gt;&lt;b style=&quot;font-size: 11px;&quot;&gt;send data&lt;/b&gt;&lt;/font&gt; to fill in (max count), possible &lt;font color=&quot;#CC0000&quot;&gt;&lt;b style=&quot;font-size: 11px;&quot;&gt;formats&lt;/b&gt;&lt;/font&gt; are: xml, ..&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=middle;labelBackgroundColor=#EAFFDD;labelBorderColor=#B3B3B3;" connectable="0" vertex="1" parent="J7BP0KJgcIZ01-OoBosc-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-247" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="HT5IqFjQtRE1Y5vp7M-8-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="550" as="sourcePoint" />
+            <mxPoint x="374" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-22" value="&lt;div style=&quot;font-size: 11px;&quot;&gt;Could not process your data;&lt;/div&gt;&lt;div style=&quot;font-size: 11px;&quot;&gt;- forbidden &lt;font color=&quot;#FF3333&quot;&gt;&lt;font color=&quot;#CC0000&quot;&gt;chars&lt;/font&gt; &lt;/font&gt;xy in field yz&lt;/div&gt;&lt;div style=&quot;font-size: 11px;&quot;&gt;- &lt;font color=&quot;#CC0000&quot;&gt;field names&lt;/font&gt; do not match with you pdf form&lt;/div&gt;&lt;div style=&quot;font-size: 11px;&quot;&gt;- pls regard max &lt;font color=&quot;#CC0000&quot;&gt;record count&lt;/font&gt; of 1234&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=middle;labelBackgroundColor=#FFFFEE;labelBorderColor=#B3B3B3;" connectable="0" vertex="1" parent="J7BP0KJgcIZ01-OoBosc-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-23" value="no" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="J7BP0KJgcIZ01-OoBosc-21">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="2" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-24" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XqmxEnGSUdeE-ECbXORa-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="550" as="sourcePoint" />
+            <mxPoint x="80" y="203" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="370" y="270" />
+              <mxPoint x="80" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-25" value="&lt;div style=&quot;font-size: 11px;&quot;&gt;Pls send valid pdf &lt;font style=&quot;font-size: 11px;&quot; color=&quot;#CC0000&quot;&gt;form&lt;/font&gt;,&lt;/div&gt;&lt;div style=&quot;font-size: 11px;&quot;&gt;max &lt;font style=&quot;font-size: 11px;&quot; color=&quot;#CC0000&quot;&gt;size&lt;/font&gt;, max &lt;font style=&quot;font-size: 11px;&quot; color=&quot;#CC0000&quot;&gt;field count&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=middle;labelBackgroundColor=#FFFFEE;labelBorderColor=#B3B3B3;spacing=2;" connectable="0" vertex="1" parent="J7BP0KJgcIZ01-OoBosc-24">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-49" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J7BP0KJgcIZ01-OoBosc-26" value="&lt;div&gt;no&lt;/div&gt;" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="J7BP0KJgcIZ01-OoBosc-24">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="6" y="19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
