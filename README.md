@@ -9,7 +9,7 @@ Fetching container images behind company proxy with self-signed certificate may 
 - Docker Engine 
 - Composer
 
-## Development Setup
+## Overview
 
 The docker compose consists of four services:
 
@@ -18,6 +18,7 @@ Webserver
 
 2. php-fpm
 PHP FastCGI implementation
+The app directory includes the Slim Framework [slim-skeleton](https://github.com/odan/slim4-skeleton) as a starting point.
 
 3. postgres
 Database
@@ -25,29 +26,65 @@ Database
 4. adminer
 Database Management, web-based
 
-The app directory includes the slim-skeleton by odan as a starting point. https://github.com/odan/slim4-skeleton
 
-Temporary not so elegant setup:
+# Local Development Environment
+
+## Clone repository and switch to dev branch
 
 ```bash
     clone git git@github.com:Research-IT-Swiss-TPH/pdf-api.git
     cd pdf-api
-    composer install --working-dir=/app
-    docker compose -f compose.dev.yml up
-    # access Slim Application at http://localhost:4080/
+    git checkout dev
 ```
 
-## Development Server
+## Create .env and define local DB password
+
+```bash
+POSTGRES_PASS=password
+```
+
+## Build docker containers and run with compose
+
+```bash
+./bin/build-local.sh
+..
+```
+
+## Install composer dependencies within php-fpm container
+```bash
+./bin/install-local.sh
+```
+
+## Login to local postgres database with adminer
+
+System: PostgresSQL
+Server: postgres
+Username: postgres
+Password: password
+Database: postgres
+
+Set to permanent login
+
+#  Development Environment
 
 NGINX: http://143.198.242.211.nip.io/
 Adminer: http://143.198.242.211.nip.io:8080
 
+## SSL Certificates
 
-# Adminer Login
+### Issue and setup SSL certitifactes with certbot
+This has to be done in initial container setup
 
-System: PostgresSQL
-Server: pdf-api-postgres
-Username: postgres
-Password: *********
-Database: postgres
+```bash
+./bin/certs-dev # dry-run
 
+./bin/certs-dev --run # actual run
+```
+
+### Renew SSL certificates
+Needs to be run every 90 days (or added to cron for automation, tbd.)
+
+```bash
+docker composer -f compose.dev.yml certbot run renew
+# https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/
+```

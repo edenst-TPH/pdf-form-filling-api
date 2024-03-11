@@ -19,9 +19,3 @@ COPY certs/nginx-selfsigned.key /etc/nginx/ssl/nginx-selfsigned.key
 FROM base as dev
 RUN echo "Development Environment"
 
-# # Install certbot and request certificate
-# RUN apk add python3 python3-dev py3-pip build-base libressl-dev musl-dev libffi-dev rust cargo
-# RUN pip3 install pip --upgrade
-# RUN pip3 install certbot-nginx
-# RUN mkdir /etc/letsencrypt
-
