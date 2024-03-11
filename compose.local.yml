@@ -3,7 +3,7 @@ services:
     build: 
       context: ./.docker/nginx
       target: local
-    container_name: pdf-api-local-nginx
+    container_name: pff-api-local-nginx
     ports:
       - "80:80"
       - "443:443"
@@ -16,38 +16,37 @@ services:
 
   php-fpm:
     build: ./.docker/php-fpm
-    container_name: pdf-api-local-php
+    container_name: pff-api-local-php
     environment:
-      - APP_ENV=local
+      - DOCKER=local
       - PHP_FPM_ENABLE=1
       - PHP_FPM_SERVER_ADDR=php
       - PHP_FPM_SERVER_PORT=9000
       - PHP_FPM_TIMEOUT=${HTTPD_TIMEOUT_TO_PHP_FPM:-180}
-      - DB_HOST=pdf-api-postgres
-      - DB_PORT=${POSTGRES_PORT}
-      - DB_USER=${POSTGRES_USER}
-      - DB_PASSWORD=${POSTGRES_PASS}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
     volumes:
       - ./app:/var/www/html
-    # links:
-    #   - postgres
+    links:
+      - postgres
 
-  # postgres:
-  #   container_name: pdf-api-postgres
-  #   image: postgres:16.1
-  #   restart: always
-  #   environment:
-  #     - DB_USER=${POSTGRES_USER}
-  #     - DB_PASSWORD=${POSTGRES_PASS}
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
+  postgres:
+    container_name: pff-api-local-postgres
+    image: postgres:16.1
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
-  # adminer:
-  #   container_name: pdf-api-php-adminer
-  #   image: adminer
-  #   restart: always
-  #   ports:
-  #     - 8080:8080
+  adminer:
+    container_name: pff-api-local-adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
 
 volumes:
   pgdata:      
