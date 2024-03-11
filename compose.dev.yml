@@ -1,6 +1,6 @@
 services:
   nginx:
-    container_name: pdf-api-dev-nginx
+    container_name: pff-api-dev-nginx
     restart: always
     build: 
       context: ./.docker/nginx
@@ -19,7 +19,7 @@ services:
     #command: ["nginx", "-g", "daemon off;"]
 
   php-fpm:
-    container_name: pdf-api-dev-php
+    container_name: pff-api-dev-php
     build: ./.docker/php-fpm
     environment:
       - PHP_FPM_ENABLE=1
@@ -37,14 +37,14 @@ services:
     #   - postgres
   
   certbot:
-    container_name: pdf-api-dev-certbot
+    container_name: pff-api-dev-certbot
     image: certbot/certbot:latest
     volumes:
       - ./.docker/certbot/www/:/var/www/certbot/:rw
       - ./.docker/certbot/conf/:/etc/letsencrypt/:rw
 
   # postgres:
-  #   container_name: pdf-api-postgres
+  #   container_name: pff-api-postgres
   #   image: postgres:16.1
   #   restart: always
   #   environment:
@@ -54,7 +54,7 @@ services:
   #     - pgdata:/var/lib/postgresql/data
 
   # adminer:
-  #   container_name: pdf-api-php-adminer
+  #   container_name: pff-api-php-adminer
   #   image: adminer
   #   restart: always
   #   ports:

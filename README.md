@@ -1,8 +1,8 @@
-# PDF API [![Deploy to dev](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml/badge.svg)](https://github.com/Research-IT-Swiss-TPH/pdf-api/actions/workflows/deploy_dev.yml)
-Slim Framework powered API for PDF form filling.
+# PDF FORM FILLING (PFF) API 
+Slim Framework powered API for PDF Form Filling.
 
 ## Notice
-Fetching container images behind company proxy with self-signed certificate may fail. In such case exiting network is recommended for ease of development.
+Fetching container images behind company proxy with self-signed certificate may fail. In such case, exiting network is recommended for ease of development.
 
 ## Requirements
 - Git
@@ -61,7 +61,8 @@ Set to permanent login
 
 #  Development Environment
 
-NGINX: http://143.198.242.211.nip.io/
+Web: http://143.198.242.211.nip.io/
+
 Adminer: http://143.198.242.211.nip.io:8080
 
 ## Environmnet variables
@@ -83,7 +84,7 @@ This has to be done in initial container setup
 ```
 
 ### Renew SSL certificates
-Needs to be run every 90 days (or added to cron for automation, tbd.)
+Needs to be manually renewed every 90 days (or added to cron for automation, tbd.)
 
 ```bash
 docker composer -f compose.dev.yml certbot run renew

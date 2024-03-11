@@ -3,7 +3,7 @@ services:
     build: 
       context: ./.docker/nginx
       target: local
-    container_name: pdf-api-local-nginx
+    container_name: pff-api-local-nginx
     ports:
       - "80:80"
       - "443:443"
@@ -16,7 +16,7 @@ services:
 
   php-fpm:
     build: ./.docker/php-fpm
-    container_name: pdf-api-local-php
+    container_name: pff-api-local-php
     environment:
       - DOCKER=local
       - PHP_FPM_ENABLE=1
@@ -33,7 +33,7 @@ services:
       - postgres
 
   postgres:
-    container_name: pdf-api-local-postgres
+    container_name: pff-api-local-postgres
     image: postgres:16.1
     restart: always
     environment:
@@ -42,7 +42,7 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   adminer:
-    container_name: pdf-api-local-adminer
+    container_name: pff-api-local-adminer
     image: adminer
     restart: always
     ports:
