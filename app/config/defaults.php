@@ -28,15 +28,44 @@ $settings['logger'] = [
 
 // Database settings
 $settings['db'] = [
-    'host' => 'localhost',
+    'driver' => \Cake\Database\Driver\Postgres::class,
+    'host' => 'postgres',   #tbd, env var (resolves to container internal ip?)
+    'port'     => '5433',
+    'database' => 'postgres',   #tbd, env var
+    'username' => 'postgres',   #tbd, env var
+    'password' => 'password',   #tbd, env var
     'encoding' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
+    'quoteIdentifiers' => true,
+    'timezone' => null,
+
     // PDO options
     'options' => [
         PDO::ATTR_PERSISTENT => false,
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_EMULATE_PREPARES => true,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ],
+];
+
+// Database migrations
+$settings['phinx'] = [
+    'paths' => [
+        'migrations' => __DIR__ . '/../resources/migrations',
+        'seeds' => __DIR__ . '/../resources/seeds',
+    ],
+    'default_migration_table' => 'phinxlog',
+    'environments' => [
+        'default_environment' => 'local',
+        'version_order' => 'creation',
+        'local' => [
+            'adapter' => 'pgsql',
+            'host' => 'postgres',
+            'name' => 'postgres',
+            'user' => 'postgres',
+            'pass' => 'password',
+            'charset' => 'utf8mb4',
+        ],
     ],
 ];
 
@@ -49,7 +78,7 @@ $settings['twig'] = [
     // Twig environment options
     'options' => [
     // Should be set to true in production
-    'cache_enabled' => false,
+    'cache_enabled' => false,   #tbd, set to true in production
     'cache_path' => __DIR__ . '/../tmp/twig',
     ],
 ];

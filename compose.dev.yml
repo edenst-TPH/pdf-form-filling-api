@@ -43,22 +43,22 @@ services:
       - ./.docker/certbot/www/:/var/www/certbot/:rw
       - ./.docker/certbot/conf/:/etc/letsencrypt/:rw
 
-  # postgres:
-  #   container_name: pff-api-postgres
-  #   image: postgres:16.1
-  #   restart: always
-  #   environment:
-  #     - DB_USER=${POSTGRES_USER}
-  #     - DB_PASSWORD=${POSTGRES_PASS}
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
+  postgres:
+    container_name: pff-api-postgres
+    image: postgres:16.1
+    restart: always
+    environment:
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PASS}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
-  # adminer:
-  #   container_name: pff-api-php-adminer
-  #   image: adminer
-  #   restart: always
-  #   ports:
-  #     - 8080:8080
+  adminer:
+    container_name: pff-api-php-adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
 
 volumes:
   pgdata:

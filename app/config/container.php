@@ -19,6 +19,7 @@ use Slim\Factory\AppFactory;
 use Slim\Interfaces\RouteParserInterface;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
+use Cake\Database\Connection;
 
 return [
     // Application settings
@@ -35,6 +36,7 @@ return [
 
         return $app;
     },
+
 
     // HTTP factories
     ResponseFactoryInterface::class => function (ContainerInterface $container) {
@@ -90,6 +92,19 @@ return [
         );
     },
 
+    // Database connection
+    Connection::class => function (ContainerInterface $container) {
+        return new Connection($container->get('settings')['db']);
+    },
+
+    PDO::class => function (ContainerInterface $container) {
+        $db = $container->get(Connection::class);
+        $driver = $db->getDriver();
+        $driver->connect();
+
+        return $driver->getConnection();
+    },
+
     // Twig templates
     Twig::class => function (ContainerInterface $container) {
         $settings = $container->get('settings');
@@ -110,8 +125,8 @@ return [
 
     TwigMiddleware::class => function (ContainerInterface $container) {
         return TwigMiddleware::createFromContainer(
-        $container->get(App::class),
-        Twig::class
-    );
+            $container->get(App::class),
+            Twig::class
+        );
     },
 ];
