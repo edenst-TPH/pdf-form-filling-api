@@ -18,12 +18,12 @@ services:
     build: ./.docker/php-fpm
     container_name: pdf-api-local-php
     environment:
-      - APP_ENV=local
+      - DOCKER=local
       - PHP_FPM_ENABLE=1
       - PHP_FPM_SERVER_ADDR=php
       - PHP_FPM_SERVER_PORT=9000
       - PHP_FPM_TIMEOUT=${HTTPD_TIMEOUT_TO_PHP_FPM:-180}
-      - DB_HOST=pdf-api-postgres
+      - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
@@ -37,7 +37,7 @@ services:
     image: postgres:16.1
     restart: always
     environment:
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_PASSWORD=password
     volumes:
       - pgdata:/var/lib/postgresql/data
 

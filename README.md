@@ -37,12 +37,6 @@ Database Management, web-based
     git checkout dev
 ```
 
-## Create .env and define local DB password
-
-```bash
-POSTGRES_PASS=password
-```
-
 ## Build docker containers and run with compose
 
 ```bash
@@ -70,7 +64,14 @@ Set to permanent login
 NGINX: http://143.198.242.211.nip.io/
 Adminer: http://143.198.242.211.nip.io:8080
 
-## SSL Certificates
+## Environmnet variables
+
+```bash
+DB_USER=
+DB_PASSWORD=
+```
+
+## SSL certificates
 
 ### Issue and setup SSL certitifactes with certbot
 This has to be done in initial container setup
