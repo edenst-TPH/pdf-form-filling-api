@@ -94,7 +94,14 @@ return [
 
     // Database connection
     Connection::class => function (ContainerInterface $container) {
-        return new Connection($container->get('settings')['db']);
+        //return new Connection($container->get('settings')['db']);
+        return new Connection([
+            'host' => 'postgres',
+            'password' => 'password',
+            'username' => 'postgres',
+            'database' => 'postgres',
+            'driver'=>'Cake\Database\Driver\Postgres'
+        ]);
     },
 
     PDO::class => function (ContainerInterface $container) {

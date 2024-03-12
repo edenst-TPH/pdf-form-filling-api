@@ -28,24 +28,25 @@ $settings['logger'] = [
 
 // Database settings
 $settings['db'] = [
-    'driver' => \Cake\Database\Driver\Postgres::class,
-    'host' => 'postgres',   #tbd, env var (resolves to container internal ip?)
-    'port'     => '5433',
-    'database' => 'postgres',   #tbd, env var
-    'username' => 'postgres',   #tbd, env var
-    'password' => 'password',   #tbd, env var
-    'encoding' => 'utf8mb4',
-    'collation' => 'utf8mb4_unicode_ci',
-    'quoteIdentifiers' => true,
-    'timezone' => null,
+    // 'className' => 'Cake\Database\Connection',
+    'driver' => 'Cake\Database\Driver\Postgres',
+    // 'host'     => 'localhost',   #tbd, env var (resolves to container internal ip?)
+    // // 'port'     => '5432',
+    // 'database' => 'postgres',   #tbd, env var
+    // 'username' => 'postgres',   #tbd, env var
+    // 'password' => 'password',   #tbd, env var
+    // 'encoding' => 'utf8mb4',
+    // 'collation' => 'utf8mb4_unicode_ci',
+    // 'quoteIdentifiers' => true,
+    // 'timezone' => null,
 
     // PDO options
-    'options' => [
-        PDO::ATTR_PERSISTENT => false,
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_EMULATE_PREPARES => true,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ],
+    // 'options' => [
+    //     PDO::ATTR_PERSISTENT => false,
+    //     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    //     PDO::ATTR_EMULATE_PREPARES => true,
+    //     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    // ],
 ];
 
 // Database migrations
