@@ -20,11 +20,12 @@ final class MyFirstMigration extends AbstractMigration
     public function change(): void
     {
         $table = $this->table('customers');
-        $table->addColumn('name', 'string')
+        $table->addColumn('name', 'string', ['limit' => 100])
         ->addColumn('email', 'string', ['limit' => 100])
-        ->addColumn('organisation', 'integer')
+        ->addColumn('organisation', 'string', ['null' => true, 'limit' => 100])
         ->addColumn('created', 'datetime')
         ->addColumn('updated', 'datetime', ['null' => true])
+        ->addColumn('max_projects', 'integer', ['default' => 5, 'signed' => true])
         ->addIndex(['email'], ['unique' => true])
         ->create();
     }
