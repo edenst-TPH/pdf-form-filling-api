@@ -98,11 +98,14 @@ return [
     },
 
     PDO::class => function (ContainerInterface $container) {
-        $db = $container->get(Connection::class);
-        $driver = $db->getDriver();
-        $driver->connect();
 
-        return $driver->getConnection();
+        $driver = $container->get(Connection::class)->getDriver();
+        $class = new ReflectionClass($driver);
+        $method = $class->getMethod('getPdo');
+
+        $method->setAccessible(true);
+        return $method->invoke($driver);
+
     },
 
     // Twig templates
