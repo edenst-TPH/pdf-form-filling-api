@@ -5,6 +5,8 @@ namespace App\Middleware;
 use App\Renderer\JsonRenderer;
 use DomainException;
 use Fig\Http\Message\StatusCodeInterface;
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -72,8 +74,15 @@ final class ExceptionMiddleware implements MiddlewareInterface
             return $this->renderJson($exception, $response);
         }
 
-        // HTML
+        //  Show advanced error / exception tracking in dev environment only
+        if($_ENV["APP_ENV"] === "dev") {
+            //  Whoops
+            return $this->renderWhoops($response, $exception);
+        }
+
+        //HTML
         return $this->renderHtml($response, $exception);
+
     }
 
     public function renderJson(Throwable $exception, ResponseInterface $response): ResponseInterface
@@ -85,6 +94,21 @@ final class ExceptionMiddleware implements MiddlewareInterface
         ];
 
         return $this->renderer->json($response, $data);
+    }
+
+    public function renderWhoops(ResponseInterface $response, Throwable $exception): ResponseInterface
+    {
+
+        $whoops = new Run();
+        $whoops->allowQuit(false);
+        $whoops->writeToOutput(false);
+        $whoops->pushHandler(new PrettyPageHandler);
+        $html = $whoops->handleException($exception);
+
+        $response->getBody()->write($html);
+
+        return $response;
+
     }
 
     public function renderHtml(ResponseInterface $response, Throwable $exception): ResponseInterface

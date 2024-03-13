@@ -1,3 +1,4 @@
 
 @customer_id = 3
 DELETE https://localhost/api/customers/{{customer_id}}
+accept: application/json

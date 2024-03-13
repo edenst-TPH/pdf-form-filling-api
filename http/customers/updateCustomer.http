@@ -3,6 +3,7 @@
 ### 
 PUT https://localhost/api/customers/{{customer_id}} HTTP/1.1
 content-type: application/json
+accept: application/json
 
 {
     "name": "Baz",

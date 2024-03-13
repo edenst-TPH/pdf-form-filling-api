@@ -1,1 +1,2 @@
 GET https://localhost/api/customers
+accept: application/json
