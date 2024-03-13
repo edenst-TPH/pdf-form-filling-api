@@ -10,7 +10,7 @@ return function (array $settings): array {
 
     $settings['error']['display_error_details'] = true;
 
-    if (isset($_ENV['DOCKER']) && $_ENV['DOCKER'] === 'local' ) {
+    if (isset($_ENV['DOCKER']) ) {
         $settings['db']['host'] = $_ENV['DB_HOST'] ?: 'postgres';
         $settings['db']['port'] = $_ENV['DB_PORT'] ?: 5432;
         $settings['db']['username'] = $_ENV['DB_USER'] ?: 'postgres';
