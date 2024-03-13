@@ -7,6 +7,9 @@ use DomainException;
 
 final class CustomerRepository 
 {
+    
+    const MAX_PROJECTS_DEFAULT = 5;
+
     private QueryFactory $queryFactory;
 
     public function __construct(QueryFactory $queryFactory) 
@@ -76,7 +79,7 @@ final class CustomerRepository
             'name' => $customer['name'],
             'email' => $customer['email'],
             'organisation' => $customer['organisation'],
-            'max_projects' => $customer['max_projects']
+            'max_projects' => $customer['max_projects'] ?? self::MAX_PROJECTS_DEFAULT
         ];
     }    
 }
