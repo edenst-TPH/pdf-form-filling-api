@@ -4,12 +4,21 @@
 
 use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
 
-    $app->get('/info', function(){
-        phpinfo();
+    $app->get('/info', function(ServerRequestInterface $request, ResponseInterface $response){
+
+        ob_start () ;
+        phpinfo () ;
+        $pinfo = ob_get_contents () ;
+        ob_end_clean () ;
+
+        $response->getBody()->write($pinfo);
+        return $response;
     });
 
 
