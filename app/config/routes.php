@@ -21,6 +21,15 @@ return function (App $app) {
         return $response;
     });
 
+    $app->get('/test', function(ServerRequestInterface $request, ResponseInterface $response){
+
+        $test = $_ENV['DB_PASSWORD'] ?: 'password';
+
+        $response->getBody()->write(json_encode($test));
+
+        return $response->withHeader('Content-Type', 'application/json');
+    });    
+
 
     // API
     $app->group(
