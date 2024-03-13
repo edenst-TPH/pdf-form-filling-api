@@ -1,0 +1,5 @@
+
+@customer_id = 666
+GET https://localhost/api/customers/{{customer_id}}
+content-type: application/json
+accept: application/json

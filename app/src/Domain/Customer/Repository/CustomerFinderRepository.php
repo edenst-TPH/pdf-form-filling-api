@@ -20,13 +20,10 @@ final class CustomerFinderRepository
         $query->select(
             [
                 'id',
-                'number',
                 'name',
-                'street',
-                'postal_code',
-                'city',
-                'country',
                 'email',
+                'organisation',
+                'max_projects'
             ]
         );
 

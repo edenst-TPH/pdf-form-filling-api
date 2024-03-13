@@ -5,7 +5,7 @@ namespace App\Domain\Customer\Data;
 /**
  * DTO.
  */
-final class CustomerFinderItem
+final class CustomerReaderResult
 {
     public ?int $id = null;
 
@@ -16,5 +16,5 @@ final class CustomerFinderItem
     public ?string $organisation = null;
 
     public ?int $maxProjects = null;
-    
+
 }

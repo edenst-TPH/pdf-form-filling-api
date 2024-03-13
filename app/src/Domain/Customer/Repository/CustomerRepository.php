@@ -7,6 +7,9 @@ use DomainException;
 
 final class CustomerRepository 
 {
+    
+    const MAX_PROJECTS_DEFAULT = 5;
+
     private QueryFactory $queryFactory;
 
     public function __construct(QueryFactory $queryFactory) 
@@ -27,13 +30,10 @@ final class CustomerRepository
         $query->select(
             [
                 'id',
-                'number',
                 'name',
-                'street',
-                'postal_code',
-                'city',
-                'country',
                 'email',
+                'organisation',
+                'max_projects'
             ]
         );
 
@@ -76,13 +76,10 @@ final class CustomerRepository
     private function toRow(array $customer): array
     {
         return [
-            'number' => $customer['number'],
             'name' => $customer['name'],
-            'street' => $customer['street'],
-            'postal_code' => $customer['postal_code'],
-            'city' => $customer['city'],
-            'country' => $customer['country'],
             'email' => $customer['email'],
+            'organisation' => $customer['organisation'],
+            'max_projects' => $customer['max_projects'] ?? self::MAX_PROJECTS_DEFAULT
         ];
     }    
 }
