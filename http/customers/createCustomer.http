@@ -1,0 +1,9 @@
+
+POST https://localhost/api/customers HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Baz",
+    "email": "bazo@mail.ch",
+    "organisation": "Baz Organisation"
+}
