@@ -3,28 +3,36 @@
 namespace App\Domain\Customer\Service;
 
 use App\Domain\Customer\Repository\CustomerRepository;
-use App\Domain\Customer\Service\CustomerValidator;
-use App\Support\Validation\ValidationException;
+use Psr\Log\LoggerInterface;
+use DomainException;
 
 final class CustomerDeleter
 {
     private CustomerRepository $repository;
-    private CustomerValidator $customerValidator;
+    private LoggerInterface $logger;
 
     public function __construct(
         CustomerRepository $repository,
-        CustomerValidator $customerValidator
+        LoggerInterface $logger
     ) {
         $this->repository = $repository;
-        $this->customerValidator = $customerValidator;
+        $this->logger = $logger;
     }
 
     public function deleteCustomer($customerId): void
     {
-        if(!$this->repository->existsCustomerId($customerId)) {
-            throw new ValidationException("Customer with id $customerId does not exist");
-        }
+        $this->validateCustomerDelete($customerId);
 
         $this->repository->deleteCustomerById($customerId);
+
+        $this->logger->info(sprintf('Customer deleted successfully: %s', $customerId));
+
+    }
+
+    public function validateCustomerDelete(int $customerId): void 
+    {
+        if(!$this->repository->existsCustomerId($customerId)) {
+            throw new DomainException(sprintf('Customer not found: %s', $customerId));
+        }
     }
 }
