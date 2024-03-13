@@ -10,16 +10,24 @@ use Psr\Http\Message\ServerRequestInterface;
 return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
 
-    $app->get('/info', function(ServerRequestInterface $request, ResponseInterface $response){
+    $app->get('/pinfo', function(ServerRequestInterface $request, ResponseInterface $response){
 
         ob_start () ;
         phpinfo () ;
-        $pinfo = ob_get_contents () ;
-        ob_end_clean () ;
+        $pinfo = ob_get_clean () ;
 
         $response->getBody()->write($pinfo);
         return $response;
     });
+
+    $app->get('/pdftk', function(ServerRequestInterface $request, ResponseInterface $response){
+
+        $pdftk = shell_exec('pdftk -version');
+
+        $response->getBody()->write('<pre>'.$pdftk.'</pre>');
+        return $response;
+    });
+
 
     $app->get('/test', function(ServerRequestInterface $request, ResponseInterface $response){
 
