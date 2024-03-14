@@ -28,5 +28,10 @@ final class MyFirstMigration extends AbstractMigration
         ->addColumn('max_projects', 'integer', ['default' => 5, 'signed' => true])
         ->addIndex(['email'], ['unique' => true])
         ->create();
+
+        $table = $this->table('projects');
+        $table->addColumn('title', 'string', ['limit' => 100])
+        ->addColumn('description', 'string', ['limit' => 255])
+        ->create();
     }
 }
