@@ -11,11 +11,19 @@ return function (array $settings): array {
     $settings['error']['display_error_details'] = true;
 
     if (isset($_ENV['DOCKER']) ) {
+
         $settings['db']['host'] = 'postgres';
         $settings['db']['port'] = 5432;
         $settings['db']['username'] ='postgres';
-        #$settings['db']['password'] = $_ENV['DB_PASSWORD'] ?: 'password';
-        $settings['db']['password'] ='password';
+        $settings['db']['password'] = $_ENV['DB_PASSWORD'] ?: 'password';        
+
+        $settings['phinx'] = [
+            'environments' => [
+                'development' => [
+                    'pass' => $_ENV['DB_PASSWORD'] ?: 'password',
+                ],
+            ],
+        ];
 
      }
 
