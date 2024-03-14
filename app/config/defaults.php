@@ -62,7 +62,7 @@ $settings['phinx'] = [
             'host' => 'postgres',
             'name' => 'postgres',
             'user' => 'postgres',
-            'pass' => 'password',
+            'pass' => $_ENV['DB_PASSWORD'] ?: 'password',
             'charset' => 'utf8mb4',
         ],
     ],

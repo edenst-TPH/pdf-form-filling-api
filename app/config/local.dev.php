@@ -15,16 +15,8 @@ return function (array $settings): array {
         $settings['db']['host'] = 'postgres';
         $settings['db']['port'] = 5432;
         $settings['db']['username'] ='postgres';
-        $settings['db']['password'] = $_ENV['DB_PASSWORD'] ?: 'password';        
-
-        $settings['phinx'] = [
-            'environments' => [
-                'development' => [
-                    'pass' => $_ENV['DB_PASSWORD'] ?: 'password',
-                ],
-            ],
-        ];
-
+        $settings['db']['password'] = $_ENV['DB_PASSWORD'] ?: 'password';   
+    
      }
 
     // Database
