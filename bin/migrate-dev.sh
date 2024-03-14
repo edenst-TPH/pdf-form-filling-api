@@ -1,1 +1,1 @@
-docker compose -f compose.dev.yml run php-fpm php vendor/bin/phinx migrate
+docker compose -f compose.dev.yml run --rm -it php-fpm php vendor/bin/phinx migrate
