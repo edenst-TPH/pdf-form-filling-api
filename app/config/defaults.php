@@ -55,14 +55,14 @@ $settings['phinx'] = [
     ],
     'default_migration_table' => 'phinxlog',
     'environments' => [
-        'default_environment' => 'local',
+        'default_environment' => 'development',
         'version_order' => 'creation',
-        'local' => [
+        'development' => [
             'adapter' => 'pgsql',
             'host' => 'postgres',
             'name' => 'postgres',
             'user' => 'postgres',
-            'pass' => 'password',
+            'pass' => $_ENV['DB_PASSWORD'] ?: 'password',
             'charset' => 'utf8mb4',
         ],
     ],

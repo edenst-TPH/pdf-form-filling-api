@@ -1,1 +1,1 @@
-docker compose -f compose.dev.yml run php-fpm composer install
+docker compose -f compose.dev.yml run --rm -it php-fpm composer install

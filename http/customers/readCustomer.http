@@ -1,5 +1,5 @@
 
-@customer_id = 666
+@customer_id = 1
 GET https://localhost/api/customers/{{customer_id}}
 content-type: application/json
 accept: application/json

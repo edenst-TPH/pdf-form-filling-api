@@ -1,3 +1,4 @@
 app/vendor
 .env
 .docker/certbot/conf/
+.docker/nginx/ssl/live/

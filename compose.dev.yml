@@ -15,26 +15,22 @@ services:
       - ./.docker/nginx/ssl/live/:/etc/nginx/ssl/live/:ro
     depends_on:
       - php-fpm
-    #entrypoint: ["/usr/local/bin/entrypoint.sh"]
-    #command: ["nginx", "-g", "daemon off;"]
 
   php-fpm:
     container_name: pff-api-dev-php
     build: ./.docker/php-fpm
     environment:
+      - DOCKER=1
       - PHP_FPM_ENABLE=1
       - PHP_FPM_SERVER_ADDR=php
       - PHP_FPM_SERVER_PORT=9000
       - PHP_FPM_TIMEOUT=${HTTPD_TIMEOUT_TO_PHP_FPM:-180}
-      - DB_HOST=${DB_HOST}
-      - DB_PORT=${DB_PORT}
-      - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
 
     volumes:
       - ./app:/var/www/html
-    # links:
-    #   - postgres
+    links:
+      - postgres
   
   certbot:
     container_name: pff-api-dev-certbot
@@ -44,17 +40,16 @@ services:
       - ./.docker/certbot/conf/:/etc/letsencrypt/:rw
 
   postgres:
-    container_name: pff-api-postgres
+    container_name: pff-api-dev-postgres
     image: postgres:16.1
     restart: always
     environment:
-      - DB_USER=${POSTGRES_USER}
-      - DB_PASSWORD=${POSTGRES_PASS}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data
 
   adminer:
-    container_name: pff-api-php-adminer
+    container_name: pff-api-dev-adminer
     image: adminer
     restart: always
     ports:

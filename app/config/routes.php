@@ -13,7 +13,7 @@ return function (App $app) {
     $app->get('/pinfo', function(ServerRequestInterface $request, ResponseInterface $response){
 
 
-        throw new \RuntimeException('This is a test');
+        #throw new \RuntimeException('This is a test');
 
         ob_start () ;
         phpinfo () ;
