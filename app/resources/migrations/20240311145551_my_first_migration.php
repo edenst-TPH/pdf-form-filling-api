@@ -29,9 +29,12 @@ final class MyFirstMigration extends AbstractMigration
         ->addIndex(['email'], ['unique' => true])
         ->create();
 
-        $table = $this->table('projects');
-        $table->addColumn('title', 'string', ['limit' => 100])
-        ->addColumn('description', 'string', ['limit' => 255])
+        $table = $this->table('folders');
+        $table->addColumn('id_customer', 'integer')
+        ->addColumn('title', 'string', ['limit' => 100])
+        ->addColumn('description', 'string', ['limit' => 500])
+        ->addColumn('created', 'datetime')
+        ->addForeignKey('id_customer', 'customers', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
         ->create();
     }
 }

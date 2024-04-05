@@ -20,10 +20,10 @@ final class FolderFinderRepository
         $query->select(
             [
                 'id',
-                'name',
-                'email',
-                'organisation',
-                'max_projects'
+                'id_customer',
+                'title',
+                'description',
+                'created'
             ]
         );
 

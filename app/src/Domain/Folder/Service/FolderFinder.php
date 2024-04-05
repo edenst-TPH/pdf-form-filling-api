@@ -32,10 +32,10 @@ final class FolderFinder
         foreach ($folderRows as $folderRow) {
             $folder = new FolderFinderItem();
             $folder->id = $folderRow['id'];
-            $folder->name = $folderRow['name'];
-            $folder->email = $folderRow['email'];
-            $folder->organisation = $folderRow['organisation'];
-            $folder->maxProjects = $folderRow['max_projects'];
+            $folder->id_customer = $folderRow['id_customer'];
+            $folder->title = $folderRow['title'];
+            $folder->description = $folderRow['description'];
+            $folder->created = $folderRow['created'];
             
             $result->folders[] = $folder;
         }

@@ -1,0 +1,4 @@
+
+@folder_id = 3
+DELETE https://localhost/api/folders/{{folder_id}}
+accept: application/json

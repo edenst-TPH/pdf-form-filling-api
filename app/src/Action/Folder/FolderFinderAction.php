@@ -38,11 +38,11 @@ final class FolderFinderAction
         foreach ($result->folders as $folder) {
             $folders[] = [
                 'id' => $folder->id,
-                'name' => $folder->name,
-                'email' => $folder->email,
-                'organisation' => $folder->organisation,
-                'max_projects' => $folder->maxProjects,
-            ];
+                'id_customer' => $folder->id_customer,
+                'title' => $folder->title,
+                'description' => $folder->description,
+                'created' => $folder->created
+                ];
         }
 
         return [

@@ -44,10 +44,10 @@ final class FolderReader
         // Create domain result
         $result = new FolderReaderResult();
         $result->id = $folderRow['id'];
-        $result->name = $folderRow['name'];
-        $result->email = $folderRow['email'];
-        $result->organisation = $folderRow['organisation'];
-        $result->maxProjects = $folderRow['max_projects'];
+        $result->id_customer = $folderRow['id_customer'];
+        $result->title = $folderRow['title'];
+        $result->description = $folderRow['description'];
+        $result->created = $folderRow['created'];
 
         return $result;
     }

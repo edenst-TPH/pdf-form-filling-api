@@ -30,10 +30,10 @@ final class FolderRepository
         $query->select(
             [
                 'id',
-                'name',
-                'email',
-                'organisation',
-                'max_projects'
+                'id_customer',
+                'title',
+                'description',
+                'created'
             ]
         );
 
@@ -76,10 +76,10 @@ final class FolderRepository
     private function toRow(array $folder): array
     {
         return [
-            'name' => $folder['name'],
-            'email' => $folder['email'],
-            'organisation' => $folder['organisation'],
-            'max_projects' => $folder['max_projects'] ?? self::MAX_PROJECTS_DEFAULT
+            'id_customer' => $folder['id_customer'],
+            'title' => $folder['title'],
+            'description' => $folder['description'],
+            'created' => $folder['created'] ?? time()
         ];
     }    
 }
