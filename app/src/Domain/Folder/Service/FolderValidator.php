@@ -13,8 +13,7 @@ final class FolderValidator
         $validator
             ->requirePresence('id_customer', true, 'Input required')
             ->notEmptyString('id_customer', 'Input required')
-            ->maxLength('id_customer', 64, 'Too long')
-            ->minLength('id_customer', 64, 'Too short')
+            ->nonNegativeInteger('id_customer', 'Customer id must be an integer')
 
             ->requirePresence('title', true, 'Input required')
             ->notEmptyString('title', 'Input required')

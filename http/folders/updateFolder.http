@@ -1,4 +1,4 @@
-@folder_id = 8
+@folder_id = 3
 
 ###
 PUT https://localhost/api/folders/{{folder_id}} HTTP/1.1
@@ -7,6 +7,7 @@ accept: application/json
 
 {
     "id_customer": "2",
-    "title": "study 1.1a bar",
-    "description": "UPDATED 1st study of customer 2 bar"
+    "title": "study 2.1a bar",
+    "description": "UPDATED 1st study of customer 2 bar",
+    "created": "2024-04-06"
 }
