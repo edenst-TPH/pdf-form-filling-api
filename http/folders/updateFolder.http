@@ -8,6 +8,6 @@ accept: application/json
 {
     "id_customer": "2",
     "title": "study 2.1a bar",
-    "description": "UPDATED 1st study of customer 2 bar",
-    "created": "2024-04-06"
+    "description": "1st study of customer 2 bar, 2nd update"
+    // "created": "2024-04-06"
 }
