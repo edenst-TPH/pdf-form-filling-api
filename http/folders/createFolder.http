@@ -5,6 +5,6 @@ accept: application/json
 
 {
     "id_customer": "2",
-    "title": "study 2.2 bar",
-    "description": "2nd study of customer 2 bar"
+    "title": "folder 2.2 bar again",
+    "description": "2nd folder of customer 2 bar"
 }

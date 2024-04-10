@@ -35,7 +35,8 @@ final class FolderFinder
             $folder->id_customer = $folderRow['id_customer'];
             $folder->title = $folderRow['title'];
             $folder->description = $folderRow['description'];
-            $folder->created = $folderRow['created'];
+            $folder->created_at = $folderRow['created_at'];
+            // $folder->updated_at = $folderRow['updated_at'];
             
             $result->folders[] = $folder;
         }

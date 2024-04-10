@@ -41,7 +41,8 @@ final class FolderFinderAction
                 'id_customer' => $folder->id_customer,
                 'title' => $folder->title,
                 'description' => $folder->description,
-                'created' => $folder->created
+                'created_at' => $folder->created_at,
+                // 'updated_at' => $folder->updated_at,
                 ];
         }
 

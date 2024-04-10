@@ -47,7 +47,8 @@ final class FolderReader
         $result->id_customer = $folderRow['id_customer'];
         $result->title = $folderRow['title'];
         $result->description = $folderRow['description'];
-        $result->created = $folderRow['created'];
+        $result->created_at = $folderRow['created_at'];
+        // $result->updated_at = $folderRow['updated_at'];
 
         return $result;
     }

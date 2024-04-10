@@ -23,7 +23,8 @@ final class FolderFinderRepository
                 'id_customer',
                 'title',
                 'description',
-                'created'
+                'created_at',
+                // 'updated_at',
             ]
         );
 

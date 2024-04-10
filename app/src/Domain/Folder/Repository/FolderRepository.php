@@ -19,7 +19,7 @@ final class FolderRepository
 
     public function insertFolder(array $folder): int
     {
-        return (int)$this->queryFactory->newInsert('folders', $this->toRow($folder, true), true)
+        return (int)$this->queryFactory->newInsert('folders', $this->toRow($folder), true)
             ->execute()
             ->lastInsertId();        
     }
@@ -33,7 +33,8 @@ final class FolderRepository
                 'id_customer',
                 'title',
                 'description',
-                'created'
+                'created_at',
+                // 'updated_at',
             ]
         );
 
@@ -50,7 +51,7 @@ final class FolderRepository
 
     public function updateFolder(int $folderId, array $folder): void
     {
-        $row = $this->toRow($folder, false);
+        $row = $this->toRow($folder);
 
         $this->queryFactory->newUpdate('folders', $row)
             ->where(['id' => $folderId])
@@ -73,13 +74,13 @@ final class FolderRepository
     }
 
 
-    private function toRow(array $folder, bool $set_created): array
+    private function toRow(array $folder): array
     {
         return [
             'id_customer' => $folder['id_customer'],
             'title' => $folder['title'],
-            'description' => $folder['description'],
-            'created' => $folder['created'] ?? $set_created ? date('Y-m-d H:i:s') : null # set date created only if requested
+            'description' => $folder['description']
+            # timestamps dispatched to db, see app/resources/migrations
         ];
     }    
 }

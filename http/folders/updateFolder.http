@@ -1,5 +1,4 @@
 @folder_id = 3
-
 ###
 PUT https://localhost/api/folders/{{folder_id}} HTTP/1.1
 content-type: application/json
@@ -7,7 +6,6 @@ accept: application/json
 
 {
     "id_customer": "2",
-    "title": "study 2.1a bar",
-    "description": "1st study of customer 2 bar, 2nd update"
-    // "created": "2024-04-06"
+    "title": "folder 2.1a bar",
+    "description": "1st folder of customer 2 bar, 2nd update"
 }

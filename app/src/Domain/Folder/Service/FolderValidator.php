@@ -13,7 +13,7 @@ final class FolderValidator
         $validator
             ->requirePresence('id_customer', true, 'Input required')
             ->notEmptyString('id_customer', 'Input required')
-            ->nonNegativeInteger('id_customer', 'Customer id must be an integer')
+            ->nonNegativeInteger('id_customer', 'Customer id must be a positive integer')
 
             ->requirePresence('title', true, 'Input required')
             ->notEmptyString('title', 'Input required')

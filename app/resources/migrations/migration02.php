@@ -34,7 +34,7 @@ final class MyFirstMigration extends AbstractMigration
         ->addColumn('title', 'string', ['limit' => 100])
         ->addColumn('description', 'string', ['limit' => 500])
         // ->addColumn('created', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
-        ->addTimestamps(null, false) # will add column created_at, with value handling
+        ->addTimestamps(null, false) # will add only column created_at, with default value
         ->addForeignKey('id_customer', 'customers', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
         ->create();
     }
