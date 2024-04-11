@@ -59,6 +59,12 @@ return function (App $app) {
             $app->get('/customers/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);
             $app->put('/customers/{customer_id}', \App\Action\Customer\CustomerUpdaterAction::class);
             $app->delete('/customers/{customer_id}', \App\Action\Customer\CustomerDeleterAction::class);
+
+            $app->get('/folders', \App\Action\Folder\FolderFinderAction::class);
+            $app->post('/folders', \App\Action\Folder\FolderCreatorAction::class);
+            $app->get('/folders/{folder_id}', \App\Action\Folder\FolderReaderAction::class);
+            $app->put('/folders/{folder_id}', \App\Action\Folder\FolderUpdaterAction::class);
+            $app->delete('/folders/{folder_id}', \App\Action\Folder\FolderDeleterAction::class);
         }
     );
 
