@@ -18,7 +18,7 @@ final class FolderValidator
             ->requirePresence('title', true, 'Input required')
             ->notEmptyString('title', 'Input required')
             ->maxLength('title', 64, 'Too long')
-            ->minLength('title', 3, 'Pls provide a descriptive title')
+            ->minLength('title', 3, 'Too short')
 
             ->maxLength('description', 500, 'Too long');
 

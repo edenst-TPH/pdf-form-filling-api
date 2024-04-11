@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
-final class MyFirstMigration extends AbstractMigration
+final class InitialMigration extends AbstractMigration
 {
     /**
      * Change Method.
@@ -33,8 +33,7 @@ final class MyFirstMigration extends AbstractMigration
         $table->addColumn('id_customer', 'integer')
         ->addColumn('title', 'string', ['limit' => 100])
         ->addColumn('description', 'string', ['limit' => 500])
-        // ->addColumn('created', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
-        ->addTimestamps(null, false) # will add only column created_at, with default value
+        ->addTimestamps(null, false) # https://book.cakephp.org/phinx/0/en/migrations.html#valid-column-options
         ->addForeignKey('id_customer', 'customers', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
         ->create();
     }
