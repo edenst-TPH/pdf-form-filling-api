@@ -6,6 +6,14 @@ use Phinx\Seed\AbstractSeed;
 
 class FolderSeeder extends AbstractSeed
 {
+
+    public function getDependencies(): array
+    {
+        return [
+            'CustomerSeeder'
+        ];
+    }
+
     /**
      * Run Method.
      *
@@ -21,23 +29,20 @@ class FolderSeeder extends AbstractSeed
                 'id_customer'	=> 1,
                 'title'         => 'folder 1.1 foo',
                 'description'   => '1st folder of customer 1 foo',                
-                // 'created'       => date('Y-m-d H:i:s'),
             ],
             [
                 'id_customer'	=> 1,
                 'title'			=> 'folder 1.2 foo',
                 'description'	=> '2nd folder of customer 1 foo',                
-                // 'created'		=> date('Y-m-d H:i:s'), # dispatched to db, see migration
             ],
             [
                 'id_customer'	=> 2,
                 'title'			=> 'folder 2.1 bar',
                 'description'	=> '1st folder of customer 2 bar',                
-                // 'created'		=> date('Y-m-d H:i:s'),
             ],
         ];
 
-        $customers= $this->table('folders');
-        $customers->insert($data)->saveData();
+        $folders= $this->table('folders');
+        $folders->insert($data)->saveData();
    }
 }
