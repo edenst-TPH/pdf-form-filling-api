@@ -4,7 +4,9 @@ content-type: application/json
 accept: application/json
 
 {
-    "name": "Baz",
-    "email": "bazo@mail.ch",
-    "organisation": "Baz Organisation"
+    "email": "barx@mail.ch",
+    "firstname": "Billx",
+    "lastname": "Barx",
+    "password": "passwordx",
+    "organisation": "Barx Organisation"
 }

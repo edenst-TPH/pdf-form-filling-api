@@ -44,10 +44,13 @@ final class CustomerReader
         // Create domain result
         $result = new CustomerReaderResult();
         $result->id = $customerRow['id'];
-        $result->name = $customerRow['name'];
         $result->email = $customerRow['email'];
+        $result->firstname = $customerRow['firstname'];
+        $result->lastname = $customerRow['lastname'];
+        $result->password = $customerRow['password'];
         $result->organisation = $customerRow['organisation'];
-        $result->maxProjects = $customerRow['max_projects'];
+        $result->created_at = $customerRow['created_at'];
+        $result->updated_at = $customerRow['updated_at'];
 
         return $result;
     }

@@ -18,16 +18,17 @@ class CustomerSeeder extends AbstractSeed
     {
         $data = [
             [
-                'name'          => 'Foo',
                 'email'         => 'foo@mail.com',
+                'firstname'     => 'Fred',
+                'lastname'      => 'Foo',
+                'password'      => 'password',
                 'organisation'  => 'Foo Organisation',                
-                'created'       => date('Y-m-d H:i:s'),
             ],[
-                'name'          => 'Bar',
                 'email'         => 'bar@mail.com',
-                'organisation'  => 'Bar Organisation',  
-                'created'       => date('Y-m-d H:i:s'),
-                'max_projects'  =>  10
+                'firstname'     => 'Bill',
+                'lastname'      => 'Bar',
+                'password'      => 'password',
+                'organisation'  => 'Bar Organisation',                
             ]
         ];
 
