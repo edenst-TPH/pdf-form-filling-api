@@ -8,7 +8,7 @@ use DomainException;
 final class CustomerRepository 
 {
     
-    const MAX_PROJECTS_DEFAULT = 5;
+    // const MAX_PROJECTS_DEFAULT = 5;
 
     private QueryFactory $queryFactory;
 
@@ -30,10 +30,13 @@ final class CustomerRepository
         $query->select(
             [
                 'id',
-                'name',
                 'email',
+                'firstname',
+                'lastname',
+                'password',
                 'organisation',
-                'max_projects'
+                'created_at',
+                'updated_at'
             ]
         );
 
@@ -50,7 +53,8 @@ final class CustomerRepository
 
     public function updateCustomer(int $customerId, array $customer): void
     {
-        $row = $this->toRow($customer);
+        $customer['updated_at'] = gmdate('Y-m-d H:i:s');
+				$row = $this->toRow($customer);
 
         $this->queryFactory->newUpdate('customers', $row)
             ->where(['id' => $customerId])
@@ -75,11 +79,14 @@ final class CustomerRepository
 
     private function toRow(array $customer): array
     {
-        return [
-            'name' => $customer['name'],
+        $aa = [
             'email' => $customer['email'],
+            'firstname' => $customer['firstname'],
+            'lastname' => $customer['lastname'],
+            'password' => $customer['password'],
             'organisation' => $customer['organisation'],
-            'max_projects' => $customer['max_projects'] ?? self::MAX_PROJECTS_DEFAULT
         ];
+        if(isset($customer['updated_at'])) { $aa['updated_at'] = $customer['updated_at']; }
+        return $aa;
     }    
 }

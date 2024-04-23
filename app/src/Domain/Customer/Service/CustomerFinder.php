@@ -32,10 +32,13 @@ final class CustomerFinder
         foreach ($customerRows as $customerRow) {
             $customer = new CustomerFinderItem();
             $customer->id = $customerRow['id'];
-            $customer->name = $customerRow['name'];
             $customer->email = $customerRow['email'];
+            $customer->firstname = $customerRow['firstname'];
+            $customer->lastname = $customerRow['lastname'];
+            $customer->password = $customerRow['password'];
             $customer->organisation = $customerRow['organisation'];
-            $customer->maxProjects = $customerRow['max_projects'];
+            $customer->created_at = $customerRow['created_at'];
+            $customer->updated_at = $customerRow['updated_at'];
             
             $result->customers[] = $customer;
         }

@@ -38,11 +38,14 @@ final class CustomerReaderAction
     private function transform(CustomerReaderResult $customer): array
     {
         return [
-            'id' => $customer->id,
-            'name' => $customer->name,
-            'email' => $customer->email,
-            'organisation' => $customer->organisation,
-            'max_projects' => $customer->maxProjects
+					'id' => $customer->id,
+					'email' => $customer->email,
+					'firstname' => $customer->firstname,
+					'lastname' => $customer->lastname,
+					'password' => $customer->password,
+					'organisation' => $customer->organisation,
+					'created_at' => $customer->created_at,
+					'updated_at' => $customer->updated_at,
         ];
     }
 }

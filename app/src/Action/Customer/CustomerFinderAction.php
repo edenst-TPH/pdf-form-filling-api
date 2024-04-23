@@ -38,10 +38,13 @@ final class CustomerFinderAction
         foreach ($result->customers as $customer) {
             $customers[] = [
                 'id' => $customer->id,
-                'name' => $customer->name,
                 'email' => $customer->email,
+                'firstname' => $customer->firstname,
+                'lastname' => $customer->lastname,
+                'password' => $customer->password,
                 'organisation' => $customer->organisation,
-                'max_projects' => $customer->maxProjects,
+                'created_at' => $customer->created_at,
+                'updated_at' => $customer->updated_at,
             ];
         }
 

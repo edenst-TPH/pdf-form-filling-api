@@ -11,19 +11,23 @@ final class CustomerValidator
     {
         $validator = new Validator();
         $validator
-            ->requirePresence('name', true, 'Input required')
-            ->notEmptyString('name', 'Input required')
-            ->maxLength('name', 100, 'Too long')
-
             ->requirePresence('email', true, 'Input required')
             ->email('email', false, 'Invalid email address')
 
+            ->requirePresence('firstname', true, 'Input required')
+            ->notEmptyString('firstname', 'Input required')
+            ->maxLength('firstname', 100, 'Too long, 100 chars max')
+
+            ->requirePresence('lastname', true, 'Input required')
+            ->notEmptyString('lastname', 'Input required')
+            ->maxLength('lastname', 100, 'Too long, 100 chars max')
+
             ->requirePresence('organisation', true, 'Input required')
             ->notEmptyString('organisation', 'Input required')
-            ->maxLength('organisation', 100, 'Too long')
+            ->maxLength('organisation', 100, 'Too long, 100 chars max')
             
-            ->naturalNumber('max_projects', 'Invalid number');
-
+            // ->naturalNumber('max_projects', 'Invalid number')
+            ;
 
         $errors = $validator->validate($data);
 
