@@ -6,6 +6,7 @@ use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use mikehaertl\pdftk\Pdf;
 
 return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
@@ -37,6 +38,16 @@ return function (App $app) {
 
         $response->getBody()->write($result);
         return $response;
+    });
+
+    $app->get('/ppdftk', function(ServerRequestInterface $request, ResponseInterface $response){
+
+        $pdf = new Pdf('pdftk_test_document.pdf');
+        $result = $pdf->getDataFields();
+
+        $response->getBody()->write(json_encode($result));
+
+        return $response->withHeader('Content-Type', 'application/json');
     });
 
 
