@@ -1,4 +1,4 @@
-@customer_id = 8
+@customer_id = 2
 
 ### 
 PUT https://localhost/api/customers/{{customer_id}} HTTP/1.1
@@ -6,7 +6,9 @@ content-type: application/json
 accept: application/json
 
 {
-    "name": "Baz",
-    "email": "new2@baz.com",
-    "organisation": "Baz Organisation 1"    
+    "email": "barxupdated@mail.ch",
+    "firstname": "BillX",
+    "lastname": "BarX",
+    "password": "passwordX",
+    "organisation": "BarX Organisation"
 }
