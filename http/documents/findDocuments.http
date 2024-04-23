@@ -1,0 +1,2 @@
+GET https://localhost/api/documents
+accept: application/json

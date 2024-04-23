@@ -1,0 +1,10 @@
+POST https://localhost/api/documents HTTP/1.1
+content-type: application/json
+accept: application/json
+
+{
+    "id_folder": "2",
+    "title": "document 2.2",
+    "description": "2nd document in folder 2, new",
+    "language": "german"
+}

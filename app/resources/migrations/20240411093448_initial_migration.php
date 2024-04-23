@@ -36,5 +36,14 @@ final class InitialMigration extends AbstractMigration
         ->addTimestamps(null, false) # https://book.cakephp.org/phinx/0/en/migrations.html#valid-column-options
         ->addForeignKey('id_customer', 'customers', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
         ->create();
+
+        $table = $this->table('documents');
+        $table->addColumn('id_folder', 'integer')
+        ->addColumn('title', 'string', ['limit' => 100])
+        ->addColumn('description', 'string', ['limit' => 500])
+        ->addColumn('language', 'string', ['limit' => 64])
+        ->addTimestamps(null, false) # https://book.cakephp.org/phinx/0/en/migrations.html#valid-column-options
+        ->addForeignKey('id_folder', 'folders', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
+        ->create();
     }
 }

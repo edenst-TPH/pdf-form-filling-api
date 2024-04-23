@@ -1,0 +1,4 @@
+@document_id = 1
+GET https://localhost/api/documents/{{document_id}}
+content-type: application/json
+accept: application/json

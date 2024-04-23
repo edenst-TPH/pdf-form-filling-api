@@ -65,6 +65,12 @@ return function (App $app) {
             $app->get('/folders/{folder_id}', \App\Action\Folder\FolderReaderAction::class);
             $app->put('/folders/{folder_id}', \App\Action\Folder\FolderUpdaterAction::class);
             $app->delete('/folders/{folder_id}', \App\Action\Folder\FolderDeleterAction::class);
+
+            $app->get('/documents', \App\Action\Document\DocumentFinderAction::class);
+            $app->post('/documents', \App\Action\Document\DocumentCreatorAction::class);
+            $app->get('/documents/{document_id}', \App\Action\Document\DocumentReaderAction::class);
+            $app->put('/documents/{document_id}', \App\Action\Document\DocumentUpdaterAction::class);
+            $app->delete('/documents/{document_id}', \App\Action\Document\DocumentDeleterAction::class);
         }
     );
 

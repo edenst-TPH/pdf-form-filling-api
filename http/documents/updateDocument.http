@@ -1,0 +1,12 @@
+@document_id = 3
+###
+PUT https://localhost/api/documents/{{document_id}} HTTP/1.1
+content-type: application/json
+accept: application/json
+
+{
+    "id_folder": "2",
+    "title": "document 2.1a",
+    "description": "1st document in folder 2, 1st update",
+    "language": "french"
+}
