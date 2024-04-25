@@ -22,14 +22,20 @@ jobs:
               git fetch
               git checkout dev
               git pull
+              ./bin/restart-dev.sh
+              ./bin/reset-dev.sh
+              ./bin/migrate-dev.sh
+              ./bin/seed-dev.sh
             else
               git clone https://github.com/Research-IT-Swiss-TPH/pdf-api.git
               cd ~/pdf-api
               git fetch
               git checkout dev
               git pull
+              ./bin/start-dev.sh
+              ./bin/migrate-dev.sh
+              ./bin/seed-dev.sh
             fi
 
-
-            docker compose -f compose.dev.yml up --remove-orphans 
+            echo "Successfully deployed dev"
 
