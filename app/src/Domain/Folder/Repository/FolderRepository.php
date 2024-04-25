@@ -3,6 +3,7 @@
 namespace App\Domain\Folder\Repository;
 
 use App\Factory\QueryFactory;
+use App\Support\Helper\DateTimeHelper;
 use DomainException;
 
 final class FolderRepository 
@@ -34,7 +35,7 @@ final class FolderRepository
                 'title',
                 'description',
                 'created_at',
-                // 'updated_at',
+                'updated_at',
             ]
         );
 
@@ -51,6 +52,7 @@ final class FolderRepository
 
     public function updateFolder(int $folderId, array $folder): void
     {
+        $folder['updated_at'] = DateTimeHelper::getDate();
         $row = $this->toRow($folder);
 
         $this->queryFactory->newUpdate('folders', $row)
@@ -79,8 +81,8 @@ final class FolderRepository
         return [
             'id_customer' => $folder['id_customer'],
             'title' => $folder['title'],
-            'description' => $folder['description']
-            # timestamps dispatched to db, see app/resources/migrations
+            'description' => $folder['description'],
+            'updated_at' => isset($folder['updated_at']) ? $folder['updated_at'] : null
         ];
     }    
 }

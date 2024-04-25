@@ -38,12 +38,12 @@ $settings['db'] = [
     'database' => 'postgres',
 
     'quoteIdentifiers' => true,
-    'timezone' => null,
+    'timezone' => 'Europe/Berlin',
     'cacheMetadata' => false,
     'log' => false,
     'persistent' => false
 
-    //  tbd: heck additional postgres configuration options
+    //  tbd: check additional postgres configuration options
 
 ];
 
