@@ -3,6 +3,7 @@
 namespace App\Domain\Customer\Repository;
 
 use App\Factory\QueryFactory;
+use App\Support\Helper\DateTimeHelper;
 use DomainException;
 
 final class CustomerRepository 
@@ -53,8 +54,8 @@ final class CustomerRepository
 
     public function updateCustomer(int $customerId, array $customer): void
     {
-        $customer['updated_at'] = gmdate('Y-m-d H:i:s');
-				$row = $this->toRow($customer);
+        $customer['updated_at'] =  DateTimeHelper::getDate();
+		$row = $this->toRow($customer);
 
         $this->queryFactory->newUpdate('customers', $row)
             ->where(['id' => $customerId])
@@ -79,14 +80,14 @@ final class CustomerRepository
 
     private function toRow(array $customer): array
     {
-        $aa = [
+        return [
             'email' => $customer['email'],
             'firstname' => $customer['firstname'],
             'lastname' => $customer['lastname'],
             'password' => $customer['password'],
             'organisation' => $customer['organisation'],
-        ];
-        if(isset($customer['updated_at'])) { $aa['updated_at'] = $customer['updated_at']; }
-        return $aa;
+            'updated_at' => isset($customer['updated_at']) ? $customer['updated_at'] : null
+         ];
+
     }    
 }
