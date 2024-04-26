@@ -3,7 +3,12 @@ name: Deploy to dev
 on:
   push:
     branches: [dev]
-
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - 'bin/**'
+      - 'http/**'
+      - '.github/**'
 jobs:
   deploy:
     runs-on: ubuntu-latest
