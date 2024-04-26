@@ -1,4 +1,6 @@
 # PDF FORM FILLING (PFF) API 
+[![Deploy to dev](https://github.com/Research-IT-Swiss-TPH/pdf-form-filling-api/actions/workflows/deploy_dev.yml/badge.svg)](https://github.com/Research-IT-Swiss-TPH/pdf-form-filling-api/actions/workflows/deploy_dev.yml)
+
 Slim Framework powered API for PDF Form Filling.
 
 ## Notice
