@@ -53,7 +53,11 @@ return function (App $app) {
 
     $app->get('/test', function(ServerRequestInterface $request, ResponseInterface $response){
 
-        $test = $_ENV['DB_PASSWORD'] ?: 'password';
+        $test = array();
+
+        $test["password"] = $_ENV['DB_PASSWORD'] ?: 'password';
+
+        $test["date"] = date("Y-m-d h:i:s",time());
 
         $response->getBody()->write(json_encode($test));
 
@@ -65,6 +69,11 @@ return function (App $app) {
     $app->group(
         '/api',
         function (RouteCollectorProxy $app) {
+            $app->get('/',function(ServerRequestInterface $request, ResponseInterface $response){
+                $response->getBody()->write("API Documentation");
+                return $response;
+            });
+            
             $app->get('/customers', \App\Action\Customer\CustomerFinderAction::class);
             $app->post('/customers', \App\Action\Customer\CustomerCreatorAction::class);
             $app->get('/customers/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);
