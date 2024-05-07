@@ -1,0 +1,4 @@
+@job_id = 3
+GET https://localhost/api/jobs/{{job_id}}
+content-type: application/json
+accept: application/json
