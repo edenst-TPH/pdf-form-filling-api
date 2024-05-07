@@ -1,0 +1,11 @@
+@job_id = 4
+###
+PUT https://localhost/api/jobs/{{job_id}} HTTP/1.1
+content-type: application/json
+accept: application/json
+
+{
+    "id_document": 3,
+    "state": "running",
+    "started_at": "2024-05-07 12:00:00"
+}
