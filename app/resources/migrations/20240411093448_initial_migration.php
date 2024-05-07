@@ -51,5 +51,16 @@ final class InitialMigration extends AbstractMigration
         ->addTimestamps() # https://book.cakephp.org/phinx/0/en/migrations.html#valid-column-options
         ->addForeignKey('id_folder', 'folders', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
         ->create();
+
+        $table = $this->table('jobs');
+        $table
+        ->addColumn('id_document', 'integer')
+        ->addColumn('size', 'integer')
+        ->addColumn('state', 'string', ['limit' => 32])
+        ->addTimestamps(null, false) # created_at only
+        ->addColumn('started_at', 'timestamp')
+        ->addColumn('finished_at', 'timestamp')
+        ->addForeignKey('id_document', 'documents', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
+        ->create();
     }
 }

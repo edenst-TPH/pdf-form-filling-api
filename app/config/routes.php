@@ -91,6 +91,12 @@ return function (App $app) {
             $app->get('/documents/{document_id}', \App\Action\Document\DocumentReaderAction::class);
             $app->put('/documents/{document_id}', \App\Action\Document\DocumentUpdaterAction::class);
             $app->delete('/documents/{document_id}', \App\Action\Document\DocumentDeleterAction::class);
+
+            // $app->get('/jobs', \App\Action\Job\JobFinderAction::class);
+            // $app->post('/jobs', \App\Action\Job\JobCreatorAction::class);
+            // $app->get('/jobs/{document_id}', \App\Action\Job\JobReaderAction::class);
+            // $app->put('/jobs/{document_id}', \App\Action\Job\JobUpdaterAction::class);
+            // $app->delete('/jobs/{document_id}', \App\Action\Job\JobDeleterAction::class);
         }
     );
 
