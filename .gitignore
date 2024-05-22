@@ -2,3 +2,7 @@ app/vendor
 .env
 .docker/certbot/conf/
 .docker/nginx/ssl/live/
+
+# exclude everything but the storage folder itself
+storage/*
+!storage/.gitkeep 

@@ -82,4 +82,25 @@ $settings['twig'] = [
     ],
 ];
 
+//  Storage
+$settings['storage'] = [
+    'adapter' => \League\Flysystem\Local\LocalFilesystemAdapter::class,
+    'config' => [
+        'root' => realpath(__DIR__ . '/../storage'),
+        'permissions' => [
+        'file' => [
+            'public' => 0755,
+            'private' => 0755,
+        ],
+        'dir' => [
+            'public' => 0755,
+            'private' => 0755,
+        ],
+    ],
+    'visibility' => \League\Flysystem\Visibility::PUBLIC,
+    'lock' => LOCK_EX,
+    'link' => \League\Flysystem\Local\LocalFilesystemAdapter::DISALLOW_LINKS,
+    ]
+];
+
 return $settings;

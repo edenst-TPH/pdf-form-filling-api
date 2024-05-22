@@ -16,6 +16,7 @@
         "cakephp/validation": "^5.0",
         "fig/http-message-util": "^1.1",
         "filp/whoops": "^2.15",
+        "league/flysystem": "^3.27",
         "mikehaertl/php-pdftk": "^0.13.1",
         "monolog/monolog": "^3",
         "nyholm/psr7": "^1.8.1",
@@ -28,6 +29,7 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3",
+        "league/flysystem-memory": "^3.25",
         "phpstan/phpstan": "1.*",
         "phpunit/phpunit": "^10",
         "selective/test-traits": "^4",

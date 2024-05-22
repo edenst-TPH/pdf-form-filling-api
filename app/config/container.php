@@ -2,6 +2,7 @@
 
 use App\Middleware\ExceptionMiddleware;
 use App\Renderer\JsonRenderer;
+use App\Filesystem\Storage;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -20,6 +21,10 @@ use Slim\Interfaces\RouteParserInterface;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
 use Cake\Database\Connection;
+use League\Flysystem\Filesystem;
+use League\Flysystem\Local\LocalFilesystemAdapter;
+use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
+use League\Flysystem\Visibility;
 
 return [
     // Application settings
@@ -132,4 +137,34 @@ return [
             Twig::class
         );
     },
+
+    //  Storage
+    Storage::class => function (ContainerInterface $container) {
+
+        // Read storage adapter settings
+        $settings = $container->get('settings')['storage'];
+        $adapter = $settings['adapter'];
+        $config = $settings['config'];
+
+        // Create filesystem with
+        $filesystem = new Filesystem($container->get($adapter)($config));
+        return new Storage($filesystem);
+    },
+
+    //  Additional Storage DI
+    LocalFilesystemAdapter::class => function () {
+        
+        return function (array $config) {
+            return new LocalFilesystemAdapter(
+            $config['root'] ?? '',
+            PortableVisibilityConverter::fromArray(
+                $config['permissions'] ?? [],
+                $config['visibility'] ?? Visibility::PUBLIC
+            ),
+            $config['lock'] ?? LOCK_EX,
+            $config['link'] ?? LocalFilesystemAdapter::DISALLOW_LINKS
+            );
+        };
+    },    
+
 ];
