@@ -6,64 +6,16 @@ use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use mikehaertl\pdftk\Pdf;
 
 return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
 
-    $app->get('/pinfo', function(ServerRequestInterface $request, ResponseInterface $response){
-
-
-        #throw new \RuntimeException('This is a test');
-
-        ob_start () ;
-        phpinfo () ;
-        $pinfo = ob_get_clean () ;
-
-        $response->getBody()->write($pinfo);
-        return $response;
-    });
-
-    $app->get('/pdftk', function(ServerRequestInterface $request, ResponseInterface $response){
-
-        $pdftk = shell_exec('pdftk -version');
-        $which = shell_exec('which pdftk');
-        $locales = shell_exec('locale -a');
-        $env = json_encode($_ENV);
-
-        $result = '<pre>pdftk -version<br><br>'.$pdftk.'</pre>';
-        $result .= '<br><pre>locale -a<br><br>'.$locales.'</pre>';
-        $result .= '<br><pre>which pdftk<br><br>'.$which.'</pre>';
-        $result .= '<br><pre>'.$env.'</pre>';
-
-        $response->getBody()->write($result);
-        return $response;
-    });
-
-    $app->get('/ppdftk', function(ServerRequestInterface $request, ResponseInterface $response){
-
-        $pdf = new Pdf('pdftk_test_document.pdf');
-        $result = $pdf->getDataFields();
-
-        $response->getBody()->write(json_encode($result));
-
-        return $response->withHeader('Content-Type', 'application/json');
-    });
-
-
-    $app->get('/test', function(ServerRequestInterface $request, ResponseInterface $response){
-
-        $test = array();
-
-        $test["password"] = $_ENV['DB_PASSWORD'] ?: 'password';
-
-        $test["date"] = date("Y-m-d h:i:s",time());
-
-        $response->getBody()->write(json_encode($test));
-
-        return $response->withHeader('Content-Type', 'application/json');
-    });    
-
+    //  Manual testing (this will be removed as soon as we have implemented Unit Tests)
+    $app->get('/test/storage', \App\Action\Test\TestStorageAction::class);
+    $app->get('/test/php', \App\Action\Test\TestPhpAction::class);
+    $app->get('/test/pdftk', \App\Action\Test\TestPdftkAction::class);
+    $app->get('/test/php-pdftk', \App\Action\Test\TestPhpPdftkAction::class);
+    $app->get('/test/misc', \App\Action\Test\TestMiscAction::class);    
 
     // API
     $app->group(
