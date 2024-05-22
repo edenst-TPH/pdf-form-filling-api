@@ -10,12 +10,18 @@ use Psr\Http\Message\ServerRequestInterface;
 return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
 
-    //  Manual testing (this will be removed as soon as we have implemented Unit Tests)
-    $app->get('/test/storage', \App\Action\Test\TestStorageAction::class);
-    $app->get('/test/php', \App\Action\Test\TestPhpAction::class);
-    $app->get('/test/pdftk', \App\Action\Test\TestPdftkAction::class);
-    $app->get('/test/php-pdftk', \App\Action\Test\TestPhpPdftkAction::class);
-    $app->get('/test/misc', \App\Action\Test\TestMiscAction::class);    
+    $app->group(
+        '/test',
+        function(RouteCollectorProxy $app) {
+            
+            //  Manual testing (this will be removed as soon as we have implemented Unit Tests)
+            $app->get('/storage', \App\Action\Test\TestStorageAction::class);
+            $app->get('/php', \App\Action\Test\TestPhpAction::class);
+            $app->get('/pdftk', \App\Action\Test\TestPdftkAction::class);
+            $app->get('/php-pdftk', \App\Action\Test\TestPhpPdftkAction::class);
+            $app->get('/misc', \App\Action\Test\TestMiscAction::class);
+        }
+    );
 
     // API
     $app->group(
