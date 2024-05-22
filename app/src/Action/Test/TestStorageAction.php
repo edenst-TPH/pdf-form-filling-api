@@ -20,23 +20,29 @@ final class TestStorageAction {
     {
         $output = "";
 
-        $this->storage->write('test.txt', 'my data');
+        $username = "foo_bar";
+        $id = time();
+        $path = $username . "_" . $id;
+
+        //  create directory with timestamp
+        $this->storage->mkdir( $path );
+
+        //  write file inside directory
+        $this->storage->write($path . '/the_pdf_file.txt', 'This file has been created at ' . date('l jS \of F Y h:i:s A'));
         
-        //  list files
+        // //  list files (not needed)
         // $files = $this->storage->list("/");
 
         // foreach ($files as $file) {
         //     if($file->isFile()){
-        //         $output .= $file->path()."\n";
+        //         $output .= $file->path(). '<br>';
         //     }
         //     # code...
         // }
 
-        //  create directory with timestamp
-        //  store text file in newly created directory
         //  read file content/meta information
 
-        $response->getBody()->write(json_decode($output));
+        $response->getBody()->write(json_encode($output));
         return $response;
     }
 }
