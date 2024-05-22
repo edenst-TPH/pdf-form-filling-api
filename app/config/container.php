@@ -2,7 +2,6 @@
 
 use App\Middleware\ExceptionMiddleware;
 use App\Renderer\JsonRenderer;
-use App\Filesystem\Storage;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -21,6 +20,7 @@ use Slim\Interfaces\RouteParserInterface;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
 use Cake\Database\Connection;
+use App\Filesystem\Storage;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;

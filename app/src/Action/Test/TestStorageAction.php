@@ -20,7 +20,7 @@ final class TestStorageAction {
     {
         $output = "";
 
-        //$this->storage->write('test.txt', 'my data');
+        $this->storage->write('test.txt', 'my data');
         
         //  list files
         // $files = $this->storage->list("/");
