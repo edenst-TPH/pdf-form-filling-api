@@ -5,4 +5,5 @@ app/vendor
 
 # exclude everything but the storage folder itself
 app/storage/*
-!app/storage/.gitkeep 
+!app/storage/.gitkeep
+!app/storage/pdftk_test_document.pdf
