@@ -20,6 +20,7 @@ final class DocumentFinderRepository
         $query->select(
             [
                 'id',
+                'uuid',
                 'id_folder',
                 'title',
                 'description',

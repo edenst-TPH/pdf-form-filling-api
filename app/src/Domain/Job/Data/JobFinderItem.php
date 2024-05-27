@@ -8,6 +8,7 @@ namespace App\Domain\Job\Data;
 final class JobFinderItem
 {
 	public ?int $id = null;
+	public ?string $uuid = null;
 	public ?int $id_document = null;
 	public ?int $size = null;
 	public ?string $state = null;

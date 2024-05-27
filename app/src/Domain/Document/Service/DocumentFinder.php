@@ -32,6 +32,7 @@ final class DocumentFinder
         foreach ($documentRows as $documentRow) {
             $document = new DocumentFinderItem();
             $document->id = $documentRow['id'];
+            $document->uuid = $documentRow['uuid'];
             $document->id_folder = $documentRow['id_folder'];
             $document->title = $documentRow['title'];
             $document->description = $documentRow['description'];

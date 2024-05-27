@@ -8,6 +8,7 @@ namespace App\Domain\Document\Data;
 final class DocumentReaderResult
 {
     public ?int $id = null;
+    public ?string $uuid = null;
     public ?int $id_folder = null;
     public ?string $title = null;
     public ?string $description = null;

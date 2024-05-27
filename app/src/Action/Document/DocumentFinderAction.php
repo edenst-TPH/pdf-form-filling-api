@@ -38,6 +38,7 @@ final class DocumentFinderAction
         foreach ($result->documents as $document) {
             $documents[] = [
                 'id' => $document->id,
+                'uuid' => $document->uuid,
                 'id_folder' => $document->id_folder,
                 'title' => $document->title,
                 'description' => $document->description,

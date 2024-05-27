@@ -32,6 +32,7 @@ final class JobFinder
         foreach ($jobRows as $jobRow) {
             $job = new JobFinderItem();
             $job->id = $jobRow['id'];
+            $job->uuid = $jobRow['uuid'];
             $job->id_document = $jobRow['id_document'];
             $job->size = $jobRow['size'];
             $job->state = $jobRow['state'];

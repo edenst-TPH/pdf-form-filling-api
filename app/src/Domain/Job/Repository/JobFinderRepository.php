@@ -20,6 +20,7 @@ final class JobFinderRepository
         $query->select(
             [
                 'id',
+                'uuid',
                 'id_document',
                 'size',
                 'state',

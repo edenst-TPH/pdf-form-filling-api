@@ -31,6 +31,7 @@ final class DocumentRepository
         $query->select(
             [
                 'id',
+                'uuid',
                 'id_folder',
                 'title',
                 'description',
@@ -81,6 +82,7 @@ final class DocumentRepository
     {
         return [
             'id_folder' => $document['id_folder'],
+            'uuid' => $document['uuid'],
             'title' => $document['title'],
             'description' => $document['description'],
             'updated_at' => isset($document['updated_at']) ? $document['updated_at'] : null

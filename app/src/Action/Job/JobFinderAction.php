@@ -38,6 +38,7 @@ final class JobFinderAction
         foreach ($result->jobs as $job) {
             $jobs[] = [
                 'id' => $job->id,
+                'uuid' => $job->uuid,
                 'id_document' => $job->id_document,
                 'size' => $job->size,
                 'state' => $job->state,
