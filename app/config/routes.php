@@ -55,6 +55,8 @@ return function (App $app) {
             $app->get('/jobs/{job_id}', \App\Action\Job\JobReaderAction::class);
             $app->put('/jobs/{job_id}', \App\Action\Job\JobUpdaterAction::class);
             $app->delete('/jobs/{job_id}', \App\Action\Job\JobDeleterAction::class);
+
+            $app->get('/outputs/{output_uuid}', \App\Action\Output\OutputStreamerAction::class);
         }
     );
 

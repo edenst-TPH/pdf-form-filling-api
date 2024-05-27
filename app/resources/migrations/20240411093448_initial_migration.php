@@ -69,5 +69,15 @@ final class InitialMigration extends AbstractMigration
         ->addIndex(['uuid'], ['unique' => true])
         ->addForeignKey('id_document', 'documents', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
         ->create();
+
+        $table = $this->table('outputs');
+        $table
+        ->addColumn('id_job', 'integer')
+        ->addColumn('uuid', 'uuid', ['null' => false, 'default' => Literal::from('uuid_generate_v4()')])
+        ->addColumn('deleted_at', 'timestamp')
+        ->addTimestamps(null, false) # created_at only
+        ->addIndex(['uuid'], ['unique' => true])
+        ->addForeignKey('id_job', 'jobs', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
+        ->create();
     }
 }
