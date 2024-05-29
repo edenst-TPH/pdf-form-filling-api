@@ -17,6 +17,7 @@
         "fig/http-message-util": "^1.1",
         "filp/whoops": "^2.15",
         "league/flysystem": "^3.27",
+        "middlewares/trailing-slash": "^2.0",
         "mikehaertl/php-pdftk": "^0.13.1",
         "monolog/monolog": "^3",
         "nyholm/psr7": "^1.8.1",

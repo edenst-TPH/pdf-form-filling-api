@@ -36,32 +36,32 @@ return function (App $app) {
                 });
     
                 $app->group('/customers', function (RouteCollectorProxy $app) {
-                    $app->get('', \App\Action\Customer\CustomerFinderAction::class);
-                    $app->post('', \App\Action\Customer\CustomerCreatorAction::class);
+                    $app->get('/', \App\Action\Customer\CustomerFinderAction::class);
+                    $app->post('/', \App\Action\Customer\CustomerCreatorAction::class);
                     $app->get('/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);
                     $app->put('/{customer_id}', \App\Action\Customer\CustomerUpdaterAction::class);
                     $app->delete('/{customer_id}', \App\Action\Customer\CustomerDeleterAction::class);
                 });
             
                 $app->group('/folders', function (RouteCollectorProxy $app) {
-                    $app->get('', \App\Action\Folder\FolderFinderAction::class);
-                    $app->post('', \App\Action\Folder\FolderCreatorAction::class);
+                    $app->get('/', \App\Action\Folder\FolderFinderAction::class);
+                    $app->post('/', \App\Action\Folder\FolderCreatorAction::class);
                     $app->get('/{folder_id}', \App\Action\Folder\FolderReaderAction::class);
                     $app->put('/{folder_id}', \App\Action\Folder\FolderUpdaterAction::class);
                     $app->delete('/{folder_id}', \App\Action\Folder\FolderDeleterAction::class);
                 });
     
                 $app->group('/documents', function (RouteCollectorProxy $app) {
-                    $app->get('', \App\Action\Document\DocumentFinderAction::class);
-                    $app->post('', \App\Action\Document\DocumentCreatorAction::class);
+                    $app->get('/', \App\Action\Document\DocumentFinderAction::class);
+                    $app->post('/', \App\Action\Document\DocumentCreatorAction::class);
                     $app->get('/{document_id}', \App\Action\Document\DocumentReaderAction::class);
                     $app->put('/{document_id}', \App\Action\Document\DocumentUpdaterAction::class);
                     $app->delete('/{document_id}', \App\Action\Document\DocumentDeleterAction::class);
                 });
     
                 $app->group('/jobs', function (RouteCollectorProxy $app) {
-                    $app->get('', \App\Action\Job\JobFinderAction::class);
-                    $app->post('', \App\Action\Job\JobCreatorAction::class);
+                    $app->get('/', \App\Action\Job\JobFinderAction::class);
+                    $app->post('/', \App\Action\Job\JobCreatorAction::class);
                     $app->get('/{job_id}', \App\Action\Job\JobReaderAction::class);
                     $app->put('/{job_id}', \App\Action\Job\JobUpdaterAction::class);
                     $app->delete('/{job_id}', \App\Action\Job\JobDeleterAction::class);
