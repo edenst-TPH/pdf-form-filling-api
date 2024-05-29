@@ -1,5 +1,5 @@
 
-POST https://localhost/api/customers HTTP/1.1
+POST https://localhost/api/v1/customers HTTP/1.1
 content-type: application/json
 accept: application/json
 

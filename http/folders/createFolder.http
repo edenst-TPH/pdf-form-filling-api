@@ -1,10 +1,10 @@
 
-POST https://localhost/api/folders HTTP/1.1
+POST https://localhost/api/v1/folders HTTP/1.1
 content-type: application/json
 accept: application/json
 
 {
-    "id_customer": "2",
+    "id_customer": "77",
     "title": "folder 2.2 bar again",
     "description": "2nd folder of customer 2 bar"
 }
