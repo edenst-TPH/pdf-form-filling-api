@@ -6,21 +6,17 @@ use App\Domain\Output\Service\OutputReader;
 use App\Domain\Output\Service\OutputStreamer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use App\Filesystem\Storage;
-use Nyholm\Psr7\Stream;
 
 
 final class OutputStreamerAction
 {
     private OutputReader $outputReader;
     private OutputStreamer $outputStreamer;
-    private Storage $storage;
 
 
-    public function __construct(OutputReader $outputReader, OutputStreamer $outputStreamer, Storage $storage) {
+    public function __construct(OutputReader $outputReader, OutputStreamer $outputStreamer) {
         $this->outputReader = $outputReader;
         $this->outputStreamer = $outputStreamer;
-        $this->storage = $storage;
     }
 
     public function __invoke(
