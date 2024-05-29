@@ -15,11 +15,11 @@ return function (App $app) {
         function(RouteCollectorProxy $app) {
             
             //  Manual testing (this will be removed as soon as we have implemented Unit Tests)
-            $app->get('/storage', \App\Action\Test\TestStorageAction::class);
-            $app->get('/php', \App\Action\Test\TestPhpAction::class);
-            $app->get('/pdftk', \App\Action\Test\TestPdftkAction::class);
-            $app->get('/php-pdftk', \App\Action\Test\TestPhpPdftkAction::class);
-            $app->get('/misc', \App\Action\Test\TestMiscAction::class);
+            $app->get('/storage/', \App\Action\Test\TestStorageAction::class);
+            $app->get('/php/', \App\Action\Test\TestPhpAction::class);
+            $app->get('/pdftk/', \App\Action\Test\TestPdftkAction::class);
+            $app->get('/php-pdftk/', \App\Action\Test\TestPhpPdftkAction::class);
+            $app->get('/misc/', \App\Action\Test\TestMiscAction::class);
         }
     );
 
