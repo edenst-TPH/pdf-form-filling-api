@@ -28,8 +28,9 @@ COPY entrypoint-php.sh /usr/local/bin/entrypoint.sh
 WORKDIR /var/www/html/
 
 # Set directory permissions
-RUN sudo chmod -R g+w app/storage/
-RUN sudo chown www-data:www-data app/storage/
+RUN mkdir -p storage
+RUN chmod -R g+w storage/
+RUN chown www-data:www-data storage/
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["php-fpm","-F"]
