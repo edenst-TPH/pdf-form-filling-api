@@ -1,1 +1,1 @@
-docker compose -f compose.local.yml run php-fpm php vendor/bin/phinx seed:run
+docker exec -it pff-api-local-php php vendor/bin/phinx seed:run

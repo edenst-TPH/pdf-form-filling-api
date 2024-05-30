@@ -23,13 +23,15 @@ fstd() {
 # 3. migrate & seed database
 if [ -d "pdf-api" ]; then
 
+    cd ~/pdf-api
+
     echo "### Reset Database (Rollback to t=0)"
     fstd docker compose -f compose.dev.yml run --rm -it php-fpm php vendor/bin/phinx migrate -t 0
     echo "### Done"
     echo
 
     echo "### Sync repository"
-    cd ~/pdf-api
+
     fstd git fetch
     fstd git checkout dev
     fstd git pull

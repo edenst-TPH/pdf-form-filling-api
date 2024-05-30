@@ -1,1 +1,0 @@
-docker compose -f compose.local.yml run --rm -it php-fpm bash

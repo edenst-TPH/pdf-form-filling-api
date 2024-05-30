@@ -1,1 +1,1 @@
-docker compose -f compose.local.yml run --rm -it php-fpm php vendor/bin/phinx migrate -t 0
+docker exec -it pff-api-local-php php vendor/bin/phinx migrate -t 0
