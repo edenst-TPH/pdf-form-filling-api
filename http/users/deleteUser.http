@@ -1,0 +1,4 @@
+
+@user_id = 4
+DELETE https://localhost/api/v1/users/{{user_id}}/
+accept: application/json

@@ -8,7 +8,7 @@ namespace App\Domain\Folder\Data;
 final class FolderFinderItem
 {
     public ?int $id = null;
-    public ?int $id_customer = null;
+    public ?int $id_user = null;
     public ?string $title = null;
     public ?string $description = null;
     public ?string $created_at = null;

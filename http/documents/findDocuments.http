@@ -1,2 +1,2 @@
-GET https://localhost/api/v1/documents
+GET https://localhost/api/v1/documents/
 accept: application/json

@@ -10,7 +10,7 @@ class FolderSeeder extends AbstractSeed
     public function getDependencies(): array
     {
         return [
-            'CustomerSeeder'
+            'UserSeeder'
         ];
     }
 
@@ -26,19 +26,19 @@ class FolderSeeder extends AbstractSeed
     {
         $data = [
             [
-                'id_customer'	=> 1,
-                'title'         => 'folder 1.1 foo',
-                'description'   => '1st folder of customer 1 foo',                
+                'id_user'	=> 2,
+                'title'         => 'folder 2.1',
+                'description'   => '1st folder of user 2',                
             ],
             [
-                'id_customer'	=> 1,
-                'title'			=> 'folder 1.2 foo',
-                'description'	=> '2nd folder of customer 1 foo',                
+                'id_user'	=> 2,
+                'title'			=> 'folder 2.2',
+                'description'	=> '2nd folder of user 2',                
             ],
             [
-                'id_customer'	=> 2,
-                'title'			=> 'folder 2.1 bar',
-                'description'	=> '1st folder of customer 2 bar',                
+                'id_user'	=> 3,
+                'title'			=> 'folder 3.1',
+                'description'	=> '1st folder of user 3',                
             ],
         ];
 

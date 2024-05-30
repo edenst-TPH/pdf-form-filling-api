@@ -23,29 +23,29 @@ final class InitialMigration extends AbstractMigration
         //  We need to enable Postgres UUID extension, so that we can call uuid_generate_v4() as default for 'uuid' columns
         $this->execute('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
 
-        $table = $this->table('customers');
-        $table
-        ->addColumn('email', 'string', ['limit' => 100])
-        ->addColumn('firstname', 'string', ['limit' => 100])
-        ->addColumn('lastname', 'string', ['limit' => 100])
-        ->addColumn('password', 'string', ['limit' => 100])
-        ->addColumn('organisation', 'string', ['null' => true, 'limit' => 100])
-        // ->addColumn('max_projects', 'integer', ['default' => 5, 'signed' => true])
+        $users = $this->table('users');
+        $users
+        ->addColumn('email', 'string', ['limit' => 255, 'null' => false])
+        ->addColumn('firstname', 'string', ['limit' => 255])
+        ->addColumn('lastname', 'string', ['limit' => 255])
+        ->addColumn('password', 'string', ['limit' => 255, 'null' => false])
+        ->addColumn('role', 'string', ['limit' => 255, 'null' => false, 'default' => 'ROLE_CUSTOMER'])
+        ->addColumn('organisation', 'string', ['limit' => 255])
         ->addTimestamps()
         ->addIndex(['email'], ['unique' => true])
         ->create();
 
-        $table = $this->table('folders');
-        $table
-        ->addColumn('id_customer', 'integer')
+        $folders = $this->table('folders');
+        $folders
+        ->addColumn('id_user', 'integer')
         ->addColumn('title', 'string', ['limit' => 100])
         ->addColumn('description', 'string', ['limit' => 500])
         ->addTimestamps()
-        ->addForeignKey('id_customer', 'customers', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
+        ->addForeignKey('id_user', 'users', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
         ->create();
 
-        $table = $this->table('documents');
-        $table
+        $documents = $this->table('documents');
+        $documents
         ->addColumn('id_folder', 'integer')
         ->addColumn('uuid', 'uuid', ['null' => false, 'default' => Literal::from('uuid_generate_v4()')])
         ->addColumn('title', 'string', ['limit' => 100])
@@ -57,8 +57,8 @@ final class InitialMigration extends AbstractMigration
         ->addForeignKey('id_folder', 'folders', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
         ->create();
 
-        $table = $this->table('jobs');
-        $table
+        $jobs = $this->table('jobs');
+        $jobs
         ->addColumn('id_document', 'integer')
         ->addColumn('uuid', 'uuid', ['null' => false, 'default' => Literal::from('uuid_generate_v4()')])
         ->addColumn('size', 'integer')
@@ -70,8 +70,8 @@ final class InitialMigration extends AbstractMigration
         ->addForeignKey('id_document', 'documents', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
         ->create();
 
-        $table = $this->table('outputs');
-        $table
+        $outputs = $this->table('outputs');
+        $outputs
         ->addColumn('id_job', 'integer')
         ->addColumn('uuid', 'uuid', ['null' => false, 'default' => Literal::from('uuid_generate_v4()')])
         ->addColumn('deleted_at', 'timestamp')

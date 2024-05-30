@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\Customer\Repository;
+namespace App\Domain\User\Repository;
 
 use App\Factory\QueryFactory;
 
-final class CustomerFinderRepository
+final class UserFinderRepository
 {
     private QueryFactory $queryFactory;
 
@@ -13,9 +13,9 @@ final class CustomerFinderRepository
         $this->queryFactory = $queryFactory;
     }
 
-    public function findCustomers(): array
+    public function findUsers(): array
     {
-        $query = $this->queryFactory->newSelect('customers');
+        $query = $this->queryFactory->newSelect('users');
 
         $query->select(
             [
@@ -23,7 +23,8 @@ final class CustomerFinderRepository
                 'email',
                 'firstname',
                 'lastname',
-                'password',
+                //'password',
+                'role',
                 'organisation',
                 'created_at',
                 'updated_at'

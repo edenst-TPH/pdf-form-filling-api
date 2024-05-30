@@ -20,10 +20,14 @@ final class OutputStreamer {
         //  content negotation depending on $output["size_job"]
         //  if size == 1 : .pdf
         //  else .zip
+        //  $ext = "zip"
+
 
         //  https://discourse.slimframework.com/t/slim4-output-buffering-large-files-zip-streaming/4917/2
 
         $filename = "pdftk_test_document.pdf";  // testing
+
+        //$filepath = $folder_id . "/" . $document_id . $ext ;
 
         $file = $this->storage->read($filename);
         $stream = Stream::create($file);

@@ -1,5 +1,0 @@
-
-@customer_id = 1
-GET https://localhost/api/v1/customers/{{customer_id}}
-content-type: application/json
-accept: application/json

@@ -32,7 +32,7 @@ final class FolderFinder
         foreach ($folderRows as $folderRow) {
             $folder = new FolderFinderItem();
             $folder->id = $folderRow['id'];
-            $folder->id_customer = $folderRow['id_customer'];
+            $folder->id_user = $folderRow['id_user'];
             $folder->title = $folderRow['title'];
             $folder->description = $folderRow['description'];
             $folder->created_at = $folderRow['created_at'];

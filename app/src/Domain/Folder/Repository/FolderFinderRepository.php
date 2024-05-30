@@ -20,7 +20,7 @@ final class FolderFinderRepository
         $query->select(
             [
                 'id',
-                'id_customer',
+                'id_user',
                 'title',
                 'description',
                 'created_at',

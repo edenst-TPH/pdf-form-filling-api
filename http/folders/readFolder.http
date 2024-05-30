@@ -1,4 +1,4 @@
 @folder_id = 1
-GET https://localhost/api/v1/folders/{{folder_id}}
+GET https://localhost/api/v1/folders/{{folder_id}}/
 content-type: application/json
 accept: application/json

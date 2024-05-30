@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domain\Customer\Service;
+namespace App\Domain\User\Service;
 
 use App\Support\Validation\ValidationException;
 use Cake\Validation\Validator;
 
-final class CustomerValidator
+final class UserValidator
 {
-    public function validateCustomer(array $data): void
+    public function validateUser(array $data): void
     {
         $validator = new Validator();
         $validator
@@ -25,6 +25,15 @@ final class CustomerValidator
             ->requirePresence('organisation', true, 'Input required')
             ->notEmptyString('organisation', 'Input required')
             ->maxLength('organisation', 100, 'Too long, 100 chars max')
+
+            ->requirePresence('password', true, 'Input required')
+            ->notEmptyString('password', 'Input required')
+            ->maxLength('password', 100, 'Too long, 100 chars max')
+
+
+            ->requirePresence('role', true, 'Input required')
+            ->notEmptyString('role', 'Input required')
+            ->maxLength('role', 100, 'Too long, 100 chars max')
             
             // ->naturalNumber('max_projects', 'Invalid number')
             ;

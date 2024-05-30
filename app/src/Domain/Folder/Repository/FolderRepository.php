@@ -31,7 +31,7 @@ final class FolderRepository
         $query->select(
             [
                 'id',
-                'id_customer',
+                'id_user',
                 'title',
                 'description',
                 'created_at',
@@ -79,7 +79,7 @@ final class FolderRepository
     private function toRow(array $folder): array
     {
         return [
-            'id_customer' => $folder['id_customer'],
+            'id_user' => $folder['id_user'],
             'title' => $folder['title'],
             'description' => $folder['description'],
             'updated_at' => isset($folder['updated_at']) ? $folder['updated_at'] : null
