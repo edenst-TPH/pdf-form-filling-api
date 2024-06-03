@@ -39,7 +39,7 @@ final class FolderReaderAction
     {
         return [
             'id' => $folder->id,
-            'id_customer' => $folder->id_customer,
+            'id_user' => $folder->id_user,
             'title' => $folder->title,
             'description' => $folder->description,
             'created_at' => $folder->created_at,

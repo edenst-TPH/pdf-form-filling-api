@@ -44,7 +44,7 @@ final class FolderReader
         // Create domain result
         $result = new FolderReaderResult();
         $result->id = $folderRow['id'];
-        $result->id_customer = $folderRow['id_customer'];
+        $result->id_user = $folderRow['id_user'];
         $result->title = $folderRow['title'];
         $result->description = $folderRow['description'];
         $result->created_at = $folderRow['created_at'];
