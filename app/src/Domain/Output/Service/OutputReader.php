@@ -5,7 +5,7 @@ namespace App\Domain\Output\Service;
 use App\Filesystem\Storage;
 use App\Domain\Output\Repository\OutputRepository;
 use App\Domain\Output\Data\OutputReaderResult;
-use Ramsey\Uuid\Uuid;
+use Symfony\Component\Uid\Uuid;
 
 use DomainException;
 use Psr\Log\LoggerInterface;
