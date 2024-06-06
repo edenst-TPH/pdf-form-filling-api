@@ -1,2 +1,2 @@
-GET https://localhost/api/v1/jobs/
+GET https://localhost/api/v1/jobs
 accept: application/json

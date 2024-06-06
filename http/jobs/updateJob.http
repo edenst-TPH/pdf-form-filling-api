@@ -1,6 +1,6 @@
 @job_id = 4
 ###
-PUT https://localhost/api/v1/jobs/{{job_id}}/ HTTP/1.1
+PUT https://localhost/api/v1/jobs/{{job_id}} HTTP/1.1
 content-type: application/json
 accept: application/json
 

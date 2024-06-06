@@ -1,7 +1,7 @@
 @user_id = 8
 
 ### 
-PUT https://localhost/api/v1/users/{{user_id}}/ HTTP/1.1
+PUT https://localhost/api/v1/users/{{user_id}} HTTP/1.1
 content-type: application/json
 accept: application/json
 

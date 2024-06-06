@@ -1,5 +1,5 @@
 
 @user_id = 1
-GET https://localhost/api/v1/users/{{user_id}}/
+GET https://localhost/api/v1/users/{{user_id}}
 content-type: application/json
 accept: application/json
