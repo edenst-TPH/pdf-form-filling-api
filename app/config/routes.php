@@ -29,23 +29,36 @@ return function (App $app) {
 
     $app->group('', function(RouteCollectorProxy $app){
 
-        $app->get('', \App\Action\Home\HomeAction::class)->setName('home');
+        $app->get('/', \App\Action\Home\HomeAction::class)
+        ->setName('home');
 
-        $app->get('/dashboard', Dashboard\DashboardHomeAction::class)->setName('dashboard')->add(DashboardAuthMiddleware::class);
+        $app->get('/dashboard', Dashboard\DashboardHomeAction::class)
+        ->setName('dashboard')
+        ->add(DashboardAuthMiddleware::class);
 
         $app->group('', function(RouteCollectorProxy $app){
 
-            $app->get('/login', Auth\AuthLoginAction::class)->setName('login')->add(LoginAuthMiddleware::class);
-            $app->post('/login', Auth\AuthLoginSubmitAction::class)->setName('login.submit');
+            $app->get('/login', Auth\AuthLoginAction::class)
+            ->setName('login')
+            ->add(LoginAuthMiddleware::class);
 
-            $app->get('/logout', Auth\AuthLogoutAction::class)->setName('logout');
+            $app->post('/login', Auth\AuthLoginSubmitAction::class)
+            ->setName('login.submit');
 
-            $app->get('/register', Auth\AuthRegisterAction::class)->setName('register')->add(AuthMiddleware::class);
+            $app->get('/logout', Auth\AuthLogoutAction::class)
+            ->setName('logout');
 
-            $app->post('/register', Auth\AuthRegisterSubmitAction::class)->setName('register.submit'); 
+            $app->get('/register', Auth\AuthRegisterAction::class)
+            ->setName('register')
+            ->add(AuthMiddleware::class);
+
+            $app->post('/register', Auth\AuthRegisterSubmitAction::class)
+            ->setName('register.submit'); 
         });
-
-    })->add(TwigFlashMiddleware::class)->add(TwigMiddleware::class)->add(SessionStartMiddleware::class);
+    })
+    ->add(TwigFlashMiddleware::class)
+    ->add(TwigMiddleware::class)
+    ->add(SessionStartMiddleware::class);
 
 
     $app->group(
@@ -71,7 +84,7 @@ return function (App $app) {
                 $app->get('',function(ServerRequestInterface $request, ResponseInterface $response){
                     $response->getBody()->write("API Documentation");
                     return $response;
-                });
+                })->setName('documentation');
     
                 $app->group('/users', function (RouteCollectorProxy $app) {
                     $app->get('', User\UserFinderAction::class);
