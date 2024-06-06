@@ -103,4 +103,9 @@ $settings['storage'] = [
     ]
 ];
 
+// Session
+$settings['session'] = [
+    'name' => 'webapp',
+];
+
 return $settings;

@@ -18,7 +18,7 @@ class UserSeeder extends AbstractSeed
     {
         $data = [
             [
-                'email'         => 'Alice@foo.bar',
+                'email'         => 'alice@foo.bar',
                 'firstname'     => 'Alice',
                 'lastname'      => 'Ecila',
                 'password'      =>  password_hash('secret', PASSWORD_DEFAULT),

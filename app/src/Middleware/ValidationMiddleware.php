@@ -25,6 +25,8 @@ final class ValidationMiddleware implements MiddlewareInterface
         try {
             return $handler->handle($request);
         } catch (ValidationException $exception) {
+
+            
             $response = $this->responseFactory->createResponse();
             $data = $this->transform($exception);
             $json = (string)json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PARTIAL_OUTPUT_ON_ERROR);

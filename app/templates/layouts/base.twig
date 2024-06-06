@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+            {{ include('layouts/head.twig') }}
+        {% endblock %}
+    </head>
+    <body class="{{ isCentered ? 'd-flex align-items-center py-4 bg-body-tertiary' : ''}}">
+        
+        <div class="{{ isBoxed or isCentered ? 'col-lg-8 mx-auto p-3 py-md-5' : ''}}">
+
+        {% block header %}
+        {% endblock %}
+
+        {% block main %}
+        {% endblock %}
+
+        {% block footer %}
+        {% if not isCentered and not isDashboard %}
+            {{ include('layouts/footer.twig') }}
+        {% endif %}
+        {% endblock %}
+
+        </div>
+    </body>
+
+</html>

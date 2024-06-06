@@ -25,6 +25,9 @@ use League\Flysystem\Filesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use League\Flysystem\Visibility;
+use Odan\Session\PhpSession;
+use Odan\Session\SessionInterface;
+use Odan\Session\SessionManagerInterface;
 
 return [
     // Application settings
@@ -165,6 +168,16 @@ return [
             $config['link'] ?? LocalFilesystemAdapter::DISALLOW_LINKS
             );
         };
+    },
+
+    //  Session
+    SessionManagerInterface::class => function (ContainerInterface $container) {
+        return $container->get(SessionInterface::class);
+    },
+    SessionInterface::class => function (ContainerInterface $container) {
+        $options = $container->get('settings')['session'];
+        
+        return new PhpSession($options);
     },    
 
 ];
