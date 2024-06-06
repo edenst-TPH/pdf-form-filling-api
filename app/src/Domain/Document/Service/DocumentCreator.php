@@ -26,13 +26,17 @@ final class DocumentCreator
 
     public function createDocument(array $data): int
     {
-        // // Input validation
+        // ** File ** upload
+        
+
+        // ** DB-data **
+        // Data input validation
         $this->documentValidator->validateDocument($data);
 
-        // Insert document and get new document ID
+        // DB-insert document data and get new document ID (int)
         $documentId = $this->repository->insertDocument($data);
 
-        // // Logging
+        // Logging
         $this->logger->info(sprintf('Document created successfully: %s', $documentId));
 
         return $documentId;
