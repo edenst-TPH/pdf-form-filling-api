@@ -9,9 +9,7 @@ use Psr\Log\LoggerInterface;
 final class DocumentCreator
 {
     private DocumentRepository $repository;
-
     private DocumentValidator $documentValidator;
-
     private LoggerInterface $logger;
     
     public function __construct(
@@ -26,9 +24,6 @@ final class DocumentCreator
 
     public function createDocument(array $data): int
     {
-        // ** File ** upload
-        
-
         // ** DB-data **
         // Data input validation
         $this->documentValidator->validateDocument($data);
