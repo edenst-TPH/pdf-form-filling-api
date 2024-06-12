@@ -1,0 +1,1 @@
+The file upload does not work with Huachao/vscode-restclient yet.

@@ -66,11 +66,14 @@ return function (App $app) {
         function(RouteCollectorProxy $app) {
             
             //  Manual testing (this will be removed as soon as we have implemented Unit Tests)
+            $app->get('/upload', Test\TestFileUploadAction::class)->add(TwigMiddleware::class);
+            $app->post('/upload', Test\TestFileSubmitAction::class);
             $app->get('/storage', Test\TestStorageAction::class);
             $app->get('/php', Test\TestPhpAction::class);
             $app->get('/pdftk', Test\TestPdftkAction::class);
             $app->get('/php-pdftk', Test\TestPhpPdftkAction::class);
             $app->get('/misc', Test\TestMiscAction::class);
+            
         }
     );
 
@@ -105,6 +108,7 @@ return function (App $app) {
                 $app->group('/documents', function (RouteCollectorProxy $app) {
                     $app->get('', Document\DocumentFinderAction::class);
                     $app->post('', Document\DocumentCreatorAction::class);
+                    $app->post('/test', Document\DocumentTestAction::class);
                     $app->get('/{document_id}', Document\DocumentReaderAction::class);
                     $app->put('/{document_id}', Document\DocumentUpdaterAction::class);
                     $app->delete('/{document_id}', Document\DocumentDeleterAction::class);
