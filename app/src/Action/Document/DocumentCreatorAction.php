@@ -22,14 +22,18 @@ final class DocumentCreatorAction
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        // Extract the form data from the request body
-        $data = (array)$request->getParsedBody();
+        # Extract the form data from the request body
+        // $data = (array)$request->getParsedBody();
+        // $uploadedFiles = (array)$request->getUploadedFiles();
 
         // debug form / upload data & return w/o any db manip
         echo 'DocumentCreatorAction'."\n";
         echo '$_REQEST: ';var_dump($_REQUEST);
-        echo '$data: ';var_dump($data);
         echo '$_FILES: ';var_dump($_FILES);
+        $data = (array)$request->getParsedBody();
+        $uploadedFiles = (array)$request->getUploadedFiles();
+        echo '$data: ';var_dump($data);
+        echo '$uploadedFiles: ';var_dump($uploadedFiles);
         return $this->renderer
             ->json($response, ['document_id' => 0])
             ->withStatus(StatusCodeInterface::STATUS_EARLY_HINTS);
