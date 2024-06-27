@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# This script is being used by Github Action to deploy the newest source code with docker
+# Author: tertek
 
 # fstd - filter standard output|error
 # description: redirects stdout and stdout based on exit codes

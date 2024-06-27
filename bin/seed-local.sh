@@ -1,1 +1,0 @@
-docker exec -it pff-api-local-php php vendor/bin/phinx seed:run

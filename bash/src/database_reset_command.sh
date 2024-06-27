@@ -1,0 +1,1 @@
+docker exec -it pff-api-php php vendor/bin/phinx migrate -t 0

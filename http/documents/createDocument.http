@@ -4,6 +4,7 @@ accept: application/json
 
 {
     "id_folder": "2",
+    "uuid": "130556ba-be60-49c6-9418-e9525db791eb",
     "title": "document 2.2",
     "description": "2nd document in folder 2, new",
     "language": "german"

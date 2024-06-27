@@ -1,0 +1,74 @@
+name: cli
+help: CLI for PDF Form Filling API
+version: 0.1.0
+
+environment_variables:
+- name: APP_ENV
+  help: Set your environment
+  required: true
+
+commands:
+- name: container
+  help: manage docker containers
+
+  commands:
+  - name: build
+    help: build docker containers
+
+  - name: start
+    help: start docker containers
+
+  - name: stop
+    help: stop docker containers
+
+  - name: restart
+    help: restart docker containers
+
+  - name: logs
+    help: log docker containers
+
+
+- name: database
+  help: manage postgresql database
+
+  commands:
+  - name: migrate
+    help: migrate database
+
+  - name: seed
+    help: seed database
+
+  - name: reset
+    help: reset database
+
+- name: cert
+  help: manage certbot SSL
+
+  commands:
+  - name: create
+    help: create new certificate
+
+    flags:
+      - long: --domain
+        short: -d
+        help: Domain name to use for certificate request
+        default: 143.198.242.211.sslip.io
+        arg: domain
+
+      - long: --run
+        help: Actually run
+
+    environment_variables:
+    - name: SSL_DOMAIN
+      help: Domain to be used for certificate creation
+      required: true
+
+  # examples:
+  #   - cert create -d 143.198.242.211.sslip.io
+
+  - name: renew
+    help: renew available certificate
+
+
+- name: install
+  help: install composer dependencies
