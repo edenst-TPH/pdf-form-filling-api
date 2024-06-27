@@ -9,7 +9,7 @@ return function (array $settings): array {
     ini_set('display_startup_errors', '1');
 
     $settings['error']['display_error_details'] = true;
-
+    
     if (isset($_ENV['DOCKER']) ) {
 
         $settings['db']['host'] = 'postgres';

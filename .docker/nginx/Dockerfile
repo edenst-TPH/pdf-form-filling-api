@@ -9,13 +9,13 @@ RUN mkdir -p /etc/nginx/ssl/live/
 # Copy entrypoint script
 # COPY entrypoint-nginx.sh /usr/local/bin/entrypoint.sh
 
-FROM base as local
-RUN echo "Local Environment"
+FROM base as dev
+RUN echo "Development Environment"
 
 # Copy self-signed certificates
 COPY certs/nginx-selfsigned.crt /etc/nginx/ssl/nginx-selfsigned.crt
 COPY certs/nginx-selfsigned.key /etc/nginx/ssl/nginx-selfsigned.key
 
-FROM base as dev
-RUN echo "Development Environment"
+FROM base as test
+RUN echo "Testing Environment"
 

@@ -1,0 +1,25 @@
+name: Deploy to dev
+
+on:
+  push:
+    branches: [dev]
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - 'bin/**'
+      - 'http/**'
+      - '.github/**'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps: 
+    - name: SSH into dev and execute deploy.sh
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+          host: ${{secrets.SSH_HOST}} # IP address of the server you wish to ssh into
+          key: ${{secrets.SSH_KEY}} # Private or public key of the server
+          username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
+          script_stop: true # Stop script after first failure
+          script: |
+            bash <(curl -s https://raw.githubusercontent.com/Research-IT-Swiss-TPH/pdf-form-filling-api/dev/bin/deploy-dev.sh)

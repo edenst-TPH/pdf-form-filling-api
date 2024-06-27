@@ -1,0 +1,28 @@
+services:
+  nginx:
+    build:
+      target: test
+    volumes:
+      - ./.docker/nginx/dev.conf:/etc/nginx/conf.d/default.conf
+      - ./.docker/certbot/conf/:/etc/nginx/ssl/:ro
+
+  php-fpm:
+    environment:
+      - DB_PASSWORD=${DB_PASSWORD}
+
+  certbot:
+    container_name: pff-api-dev-certbot
+    image: certbot/certbot:latest
+    volumes:
+      - ./.docker/certbot/conf/:/etc/letsencrypt/:rw
+
+  postgres:
+      environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+
+  adminer:
+    container_name: pff-api-adminer
+    image: adminer 
+    restart: always
+    ports:
+      - 8080:8080
