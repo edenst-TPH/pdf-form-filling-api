@@ -39,18 +39,21 @@ final class TestFileSubmitAction {
             return $response->withHeader('Content-Type', 'application/json');
         }
         # debug
-        $aa = [
+        /*$aa = [
             '__DIR__' => __DIR__,
             'r-current' => realpath('./'),
             'r-docs' => realpath('./pff-docs'),
             'current' => './',
             'docs' => './pff-docs',
         ];
-        print_r($aa);
+        print_r($aa); */
+
+        $content = file_get_contents($_FILES['document']['tmp_name']);
+        print_r([$content]);
 
         $docs_dir = realpath('./pff-docs'); # must exist an be writeable @todo get from scontainer
         if(!is_dir($docs_dir)) { echo 'docs parent missing!: '.$docs_dir; }
-        $doc_dir = $docs_dir.'/'.$id_folder; # current doc int subdir id_folder
+        $doc_dir = $docs_dir.'/'.$id_folder; # current doc / int subdir id_folder
         echo ' | doc_dir: '. $doc_dir;
 
         // if(!is_dir($parent)) { mkDir($parent, 0766, true); } # permission problem
