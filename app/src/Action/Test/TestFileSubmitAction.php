@@ -11,6 +11,12 @@ final class TestFileSubmitAction {
         return (is_numeric($s) && $s > 0 && $s == round($s));
     }
 
+    private static function randchars($count) {
+        $s = '';
+        for($i = 1; $i <= $count; $i++) { $s .= chr(64+rand(0,26)); }
+        return $s;
+    }
+
     private static function pdf_uploaded() {
         return (isset($_FILES['document']) 
         && $_FILES['document']['error'] == UPLOAD_ERR_OK
@@ -32,14 +38,25 @@ final class TestFileSubmitAction {
             );
             return $response->withHeader('Content-Type', 'application/json');
         }
+        # debug
+        $aa = [
+            '__DIR__' => __DIR__,
+            'r-current' => realpath('./'),
+            'r-docs' => realpath('./pff-docs'),
+            'current' => './',
+            'docs' => './pff-docs',
+        ];
+        print_r($aa);
 
-        echo 'pp: '.realpath('../storage/documents/'); # debug
-        echo 'p: '.realpath('./'); # debug
-        $parent = '../storage/documents/'.$id_folder;
-        // if(!is_dir($parent)) { mkDir($parent, 0766, true); } # permission probl
-        if(!is_dir($parent)) { mkDir($parent); }
-        $filename = date('ymdhis').chr(64+rand(0,26)).'.pdf';
-        move_uploaded_file($_FILES['document']['tmp_name'], $parent.'/'.$filename);
+        $docs_dir = realpath('./pff-docs'); # must exist an be writeable @todo get from scontainer
+        if(!is_dir($docs_dir)) { echo 'docs parent missing!: '.$docs_dir; }
+        $doc_dir = $docs_dir.'/'.$id_folder; # current doc int subdir id_folder
+        echo ' | doc_dir: '. $doc_dir;
+
+        // if(!is_dir($parent)) { mkDir($parent, 0766, true); } # permission problem
+        if(!is_dir($doc_dir)) { mkDir($doc_dir, 0766); }
+        $filename = date('ymdhis').'-'.$this->randChars(2).'.pdf';
+        move_uploaded_file($_FILES['document']['tmp_name'], $doc_dir.'/'.$filename);
 
         # move_uploaded_file, path see 
         # https://github.com/Research-IT-Swiss-TPH/pdf-form-filling-api/issues/39
