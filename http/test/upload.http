@@ -1,10 +1,14 @@
-POST https://localhost/test/upload HTTP/1.1
+POST /test/upload HTTP/1.1
+Host: localhost
+Content-Type: multipart/form-data; boundary=WebKitFormBoundary
 
-Content-Type: multipart/form-data boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+--WebKitFormBoundary
+Content-Disposition: form-data; name="document"; filename="document.pdf"
+Content-Type: application/pdf
 
-------WebKitFormBoundary7MA4YWxkTrZu0gW
-Content-Disposition: form-data; name="example1"; filename="1.txt"
-Content-Type: text/plain
+< ./../../app/storage/pdftk_test_document.pdf
+--WebKitFormBoundary
+Content-Disposition: form-data; name="bar"
 
-< .\1.txt
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
+Lalala
+--WebKitFormBoundary

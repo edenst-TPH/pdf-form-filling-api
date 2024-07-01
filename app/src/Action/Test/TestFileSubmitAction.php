@@ -9,30 +9,34 @@ final class TestFileSubmitAction {
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
+
+
+
+        $file = [];
         $uploadedFiles = $request->getUploadedFiles();
+        
+        if(isset($uploadedFiles['document']) ){
+            $uploadedFile =  $uploadedFiles['document'];
 
-        $uploadedFile = $uploadedFiles['example1'];
-
-        $content = (string)$uploadedFile->getStream();
-
-        if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
-            $response->getBody()->write(
-                json_encode(
-                    array(
-                        "name" => $uploadedFile->getClientFilename(),
-                        "size" => $uploadedFile->getSize(),
-                        "ext" => $uploadedFile->getClientMediaType(),
-                        "content" => $content,
-                        "body" => $request->getParsedBody()
-                    )
-                )
+            $file = 
+            array(
+                "name" => $uploadedFile->getClientFilename(),
+                "size" => $uploadedFile->getSize(),
+                "ext" => $uploadedFile->getClientMediaType(),
             );
         }
 
+        $response->getBody()->write(
+            json_encode(
+                array(
+                    //"files" => $uploadedFiles,
+                    "file" => $file,
+                    "body" => $request->getParsedBody()
+                )
+            )
+        );
+
         return $response->withHeader('Content-Type', 'application/json');
-
-
-
     }
 
 }
