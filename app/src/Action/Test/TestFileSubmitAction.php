@@ -4,10 +4,15 @@ namespace App\Action\Test;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use App\Domain\Folder\Service\FolderReader;
 
 final class TestFileSubmitAction {
 
     private static function is_positive_integer($s) {
+        return (is_numeric($s) && $s > 0 && $s == round($s));
+    }
+
+    private static function valid_folder($s) {
         return (is_numeric($s) && $s > 0 && $s == round($s));
     }
 
@@ -30,10 +35,11 @@ final class TestFileSubmitAction {
         $body = $request->getParsedBody();
         print_r($body); # debug
         $id_folder = (isset($body['id_folder'])) ? $body['id_folder'] : 0;
+        
         # id_folder must be given, as positive integer (@todo qry parent folder exists)
         if (!$this->is_positive_integer($id_folder) || !$this->pdf_uploaded()){
             $response->getBody()->write(json_encode(
-                'error, you must upload a pdf, and provide id_folder as positive integer'
+                'error, you must upload a pdf, and provide the id of an existing folder'
                 )
             );
             return $response->withHeader('Content-Type', 'application/json');
