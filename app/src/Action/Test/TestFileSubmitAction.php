@@ -38,7 +38,8 @@ class TestFileSubmitAction {
         $body = $request->getParsedBody();
         // print_r($body); # debug
         $id_folder = (isset($body['id_folder'])) ? $body['id_folder'] : 0;
-        $this->valid_folder($id_folder, $folderReader); # will throw
+        
+        // $this->valid_folder($id_folder, $folderReader); # will throw
         
         # id_folder must be given, as positive integer (@todo qry parent folder exists)
         if (!$this->valid_folder($id_folder, $folderReader) || !$this->pdf_uploaded()){
