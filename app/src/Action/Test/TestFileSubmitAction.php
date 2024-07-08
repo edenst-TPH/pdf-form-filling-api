@@ -6,14 +6,17 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Domain\Folder\Service\FolderReader;
 
-final class TestFileSubmitAction {
+class TestFileSubmitAction {
 
-    private static function is_positive_integer($s) {
-        return (is_numeric($s) && $s > 0 && $s == round($s));
-    }
+    // private static function is_positive_integer($s) { return (is_numeric($s) && $s > 0 && $s == round($s)); }
 
-    private static function valid_folder($s) {
-        return (is_numeric($s) && $s > 0 && $s == round($s));
+    # true if parent folder exists
+    private function valid_folder(int $id_folder, FolderReader $folderReader) {
+        // FolderReader $folderReader;
+        // try
+        $folderReader->validateFolderRead($id_folder);
+        // var_dump($folder);
+        return true;
     }
 
     private static function randchars($count) {
@@ -28,16 +31,17 @@ final class TestFileSubmitAction {
         && str_ends_with(strtolower($_FILES['document']['name']), '.pdf'));
     }
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, FolderReader $folderReader): ResponseInterface
     {
         $err = '';
         # $id_folder
         $body = $request->getParsedBody();
-        print_r($body); # debug
+        // print_r($body); # debug
         $id_folder = (isset($body['id_folder'])) ? $body['id_folder'] : 0;
+        $this->valid_folder($id_folder, $folderReader); # will throw
         
         # id_folder must be given, as positive integer (@todo qry parent folder exists)
-        if (!$this->is_positive_integer($id_folder) || !$this->pdf_uploaded()){
+        if (!$this->valid_folder($id_folder, $folderReader) || !$this->pdf_uploaded()){
             $response->getBody()->write(json_encode(
                 'error, you must upload a pdf, and provide the id of an existing folder'
                 )
